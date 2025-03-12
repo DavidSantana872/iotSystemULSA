@@ -51,3 +51,80 @@ h1{
     left: calc(50% - 194.5px);
     right: calc(50% - 194.5px);
 }
+
+.section-welcome{
+  padding: 0px;
+  height: 100vh;
+  animation-name: aparicion;
+  animation-duration: 2000ms;
+  animation-fill-mode: both;
+}
+.section-welcome > div > div{
+  margin: 24px;
+  margin-top: 0px;
+}
+
+.title{
+  font-size: 48px;
+  font-weight: bold;
+  animation-name: aparicion;
+  animation-delay: 300ms;
+  animation-duration: 2000ms;
+  animation-fill-mode: both;
+}
+.text{
+  font-size: 24px;
+  font-weight: 400;
+  animation-name: aparicion;
+  animation-delay: 400ms;
+  animation-duration: 2000ms;
+  animation-fill-mode: both;
+}
+@keyframes aparicion {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+.gif-iot{
+  opacity: 0.1;
+  width: 100%;
+}
+.info-box-welcome{
+  background-color: #2a2b2b;
+  border: 1px solid #2a2b2b ;
+  height: calc(100%);
+}
+#btn-go-app{
+  margin-left: calc(50% - 26px);
+  margin-top: 28px;
+  animation-name: animatebtn;
+  animation-delay: 500ms;
+  animation-duration: 900ms;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+  scale: 0;
+}
+@keyframes animatebtn {
+  from{
+    scale: 1
+  }
+  to{
+    scale: 1.2
+  }
+}
+
+
+.ml12 {
+  font-weight: 200;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+.ml12 .letter {
+  display: inline-block;
+  line-height: 1em;
+}

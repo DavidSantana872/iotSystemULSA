@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             targets: ".img-start-app",
             scale: 0,
-            duration: 0.1
+            duration: 0.01
         }
     );
     anime.timeline()
