@@ -3,7 +3,7 @@ import Options from "./Options";
 import MapView from "./MapView";
 const MainView = () => {
     return(
-        <section>
+        <section className="animate">
             <div className="options-section">
                 <Options></Options>
             </div>

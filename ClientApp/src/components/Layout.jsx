@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import StartApp from "./StartApp";
 import MainView from './MainView';
-
+import { counterContext } from '../Context/counterContext';
 const Layout = () => {
+  const {showApp} = useContext(counterContext)
   return (
-    true ?  <div><MainView/></div> :  <div><StartApp/></div> 
+    showApp ?  <div><MainView/></div> :  <div><StartApp/></div> 
   );
 };
 

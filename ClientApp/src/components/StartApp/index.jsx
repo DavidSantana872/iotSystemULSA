@@ -4,10 +4,8 @@ import "./style.css";
 import "./script.js";
 import salleImg from "./../../resources/img/salle.png";
 import Welcome from "./welcome.jsx";
-
 const Index = () => {
     const [showWelcome, setShowWelcome] = useState(false);
-
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowWelcome(true);

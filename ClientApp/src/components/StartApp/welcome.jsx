@@ -1,18 +1,26 @@
-import React from "react";
+import React, {useContext} from "react";
 import gifIot from "./../../resources/gif/iot-welcome.gif"
 import anime from "animejs";
+import { counterContext } from "../../Context/counterContext";
 const welcome = () => {
+
+    const {setShowApp} = useContext(counterContext)
     const changeComponent = () => {
         anime({
-            targets: '.section-welcome',
-            translateY: '-150vh',
-            opacity: [1,0],
+            targets: '.gif-iot',
+            opacity: 0,
+            duration:300,
+        })
+        anime({
+            targets: '.info-box-welcome',
+            opacity: 0,
+            duration:300,
             complete: () => {
-                let element = document.getElementById("section-welcome")
-                // eliminar
-                element.remove()
+                document.getElementById("section-welcome").style.display = "none"
+                setShowApp(true)
             }
-        });
+           
+        })
     }
     return(
        

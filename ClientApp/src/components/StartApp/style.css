@@ -52,7 +52,7 @@ h1{
     right: calc(50% - 194.5px);
 }
 
-.section-welcome{
+.section-welcome, .animate{
   padding: 0px;
   height: 100vh;
   animation-name: aparicion;
