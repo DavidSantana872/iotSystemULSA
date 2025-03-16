@@ -1,4 +1,4 @@
-exitimport React from "react";
+import React from "react";
 import Options from "./Options";
 import MapView from "./MapView";
 import Footer from "./Footer";

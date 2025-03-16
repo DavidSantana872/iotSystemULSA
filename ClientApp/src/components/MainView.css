@@ -41,7 +41,7 @@
     margin-top: 24px;
     margin-bottom: 24px;
 }
-.lista-leyenda{
+.lista-leyenda, .title-current-data-header{
     list-style: none;
     margin: 0px;
     padding: 0px;

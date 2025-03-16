@@ -3,8 +3,9 @@ import { counterContext } from "./counterContext.js";
 
 const AppContext = ({children}) => {
     const [showApp, setShowApp] = useState(false)
+    const [showDetails, setShowDetails] = useState(false)
     return(
-        <counterContext.Provider value={{showApp, setShowApp}}>
+        <counterContext.Provider value={{showApp, setShowApp, showDetails, setShowDetails}}>
         {children}
         </counterContext.Provider>
     );

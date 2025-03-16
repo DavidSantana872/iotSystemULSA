@@ -2,11 +2,15 @@ import React, { useContext } from 'react';
 import StartApp from "./StartApp";
 import MainView from './MainView';
 import { counterContext } from '../Context/counterContext';
+import CurrentData from "./CurrentData"
 const Layout = () => {
   const {showApp} = useContext(counterContext)
-  return (
+ return (
     showApp ?  <div><MainView/></div> :  <div><StartApp/></div> 
   );
+ /* return(
+    <CurrentData></CurrentData>
+  )*/
 };
 
 export default Layout;
