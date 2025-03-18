@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import BtnOption from "./BtnOption"
 import sound from "./../resources/icon/sound.png"
 import oxigeno from "./../resources/icon/oxigeno.png"

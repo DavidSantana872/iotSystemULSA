@@ -22,7 +22,7 @@ import CurrentData from "./CurrentData";
 import PointAlert from "./PointAlert.jsx";
 import anime from "animejs";
 const MapView = () => {
-    const {setShowDetails} = useContext(counterContext)
+    const {setShowDetails, currentMetric} = useContext(counterContext)
     const styleElement = (x, y) => {
         return{
             position: "absolute",
@@ -81,19 +81,19 @@ const MapView = () => {
                         left: 200px;
                     */
                 }
-                <PointAlert show="true" positionValue= {styleElement(200, 56)}></PointAlert>
+                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
                 <img src={campoFutbol} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector2")}} style = {styleElement(23, 342)}>
-                <PointAlert show="true" positionValue= {styleElement(200, 56)}></PointAlert>
+                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
                 <img src={campoBeisbol} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector3")}} style = {styleElement(626.79, 173.69)}>
-                <PointAlert show="true" positionValue= {styleElement(-5, -30)}></PointAlert>
+                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-5, -30)}></PointAlert>
                 <img src={Group16} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector4")}} style = {styleElement(652, 223)}>
-                <PointAlert show="true" positionValue= {styleElement(0, -25)}></PointAlert>
+                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(0, -25)}></PointAlert>
                 <img src={Vector31} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector5")}} style = {styleElement(417, 122)}>
@@ -106,7 +106,7 @@ const MapView = () => {
                 <img src={Vector25} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector8")}} style = {styleElement(753, 235.5)}>
-                <PointAlert show="true" positionValue= {styleElement(20, -15)}></PointAlert>
+                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(20, -15)}></PointAlert>
                 <img src={Vector32} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector9")}} style = {styleElement(605, 30)}>
@@ -119,7 +119,7 @@ const MapView = () => {
                 <img src={Vector33} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector12")}} style = {styleElement(549, 91)}>
-                <PointAlert show="true" positionValue= {styleElement(-15, -30)}></PointAlert>
+                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-15, -30)}></PointAlert>
                 <img src={Vector38} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector13")}} style = {styleElement(731, 204)}>
@@ -132,7 +132,7 @@ const MapView = () => {
                 <img src={Vector39} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector16")}} style = {styleElement(509, 201)}>
-                <PointAlert show="true" positionValue= {styleElement(5, -20)}></PointAlert>
+                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(5, -20)}></PointAlert>
                 <img src={Vector28} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector17")}} style = {styleElement(768, 135)}>
