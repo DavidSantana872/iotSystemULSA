@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import campoBeisbol from "./../resources/img/sitesMap/campoBeisbol.svg"
 import campoFutbol from "./../resources/img/sitesMap/campoFutbol.svg"
 import Group16 from './../resources/img/sitesMap/Group 16.svg'
@@ -19,6 +19,8 @@ import Vector35 from './../resources/img/sitesMap/Vector 35.svg'
 import Vector40 from './../resources/img/sitesMap/Vector 40.svg'
 import { counterContext } from "./../Context/counterContext";
 import CurrentData from "./CurrentData";
+import PointAlert from "./PointAlert.jsx";
+import anime from "animejs";
 const MapView = () => {
     const {setShowDetails} = useContext(counterContext)
     const styleElement = (x, y) => {
@@ -32,64 +34,117 @@ const MapView = () => {
         setShowDetails(sector)
         console.log(sector)
     }
+    useEffect(() => {
+        const animateScroll = () => {
+            const TIME = 2300;
+            anime({
+                targets: '.box-map',
+                scrollLeft: 1000,
+                scrollTop: 200,
+                duration: TIME,
+                easing: 'easeInOutQuad',
+                complete: () => {
+                    anime({
+                        targets: '.box-map',
+                        scrollLeft: 0,
+                        scrollTop: 50,
+                        duration: TIME,
+                        easing: 'easeInOutQuad',
+                        complete: () => {
+                            anime({
+                                targets: '.box-map',
+                                scrollLeft: 500,
+                                duration: TIME,
+                                easing: 'easeInOutQuad',
+                            })
+                        }
+                  });
+                }
+            });
+        };
+
+        animateScroll(); // Iniciar animación al montar el componente
+
+        return () => anime.remove('.box-map'); // Limpieza al desmontar el componente
+    }, []);
     return (
         <span>
             <section className="map" style={
-            {width: 'min-content',
-            position: 'relative'}}
+            {
+                width: 'min-content',
+                position: 'relative'
+            }}
         >
             <span onClick={()=>{showDeatilsFunction("sector1")}} style= {styleElement(209, 256)}>
+                <PointAlert style= {styleElement(209, 256)}></PointAlert>
                 <img src={campoFutbol} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector2")}} style = {styleElement(23, 342)}>
+                <PointAlert></PointAlert>
                 <img src={campoBeisbol} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector3")}} style = {styleElement(626.79, 173.69)}>
+                <PointAlert></PointAlert>
                 <img src={Group16} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector4")}} style = {styleElement(652, 223)}>
+                <PointAlert></PointAlert>
                 <img src={Vector31} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector5")}} style = {styleElement(417, 122)}>
+                <PointAlert></PointAlert>
                 <img src={Vector36} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector6")}} style = {styleElement(808, 216.5)}>
+                <PointAlert></PointAlert>
                 <img src={Vector45} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector7")}} style = {styleElement(505,135)}>
+                <PointAlert></PointAlert>
                 <img src={Vector25} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector8")}} style = {styleElement(753, 235.5)}>
+                <PointAlert></PointAlert>
                 <img src={Vector32} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector9")}} style = {styleElement(605, 30)}>
+                <PointAlert></PointAlert>
                 <img src={Vector37} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector10")}} style = {styleElement(626, 76)}>
+                <PointAlert></PointAlert>
                 <img src={Vector26} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector11")}} style = {styleElement(843, 147.5)}>
+                <PointAlert></PointAlert>
                 <img src={Vector33} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector12")}} style = {styleElement(549, 91)}>
+                <PointAlert></PointAlert>
                 <img src={Vector38} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector13")}} style = {styleElement(731, 204)}>
+                <PointAlert></PointAlert>
                 <img src={Vector27} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector14")}} style = {styleElement(716, 108)}>
+                <PointAlert></PointAlert>
                 <img src={Vector34} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector15")}} style = {styleElement(400, 201)}>
+                <PointAlert></PointAlert>
                 <img src={Vector39} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector16")}} style = {styleElement(509, 201)}>
+                <PointAlert></PointAlert>
                 <img src={Vector28} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector17")}} style = {styleElement(768, 135)}>
+                <PointAlert></PointAlert>
                 <img src={Vector35} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector18")}} style = {styleElement(489, 254)}>
+                <PointAlert></PointAlert>
                 <img src={Vector40} alt="" />
             </span>
         </section>
