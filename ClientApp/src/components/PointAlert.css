@@ -3,7 +3,7 @@
     height: 94px;
     width: 94px;
     border-radius: 50%; /* Se usa 50% para hacerlo completamente redondo */
-    background: rgb(0,72,255, 0.42);
+    background: rgb(0,72,255, 0.14);
     transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
     animation-name: creciendo;
     animation-duration: 1.5s;
@@ -15,7 +15,7 @@
     height: 94px;
     width: 94px;
     border-radius: 50%; /* Se usa 50% para hacerlo completamente redondo */
-    background: rgb(0,72,255, 0.5);
+    background: rgb(0,72,255, 0.29);
     transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
     animation-name: creciendo2;
     animation-duration: 1.5s;
@@ -27,7 +27,7 @@
     height: 94px;
     width: 94px;
     border-radius: 50%; /* Se usa 50% para hacerlo completamente redondo */
-    background:blue;
+    background:rgba(0, 72, 255, 0.35);
     transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
     animation-name: creciendo3;
     animation-duration: 1.5s;

@@ -1,13 +1,13 @@
 import React from "react"
 import "./PointAlert.css"
-const PointAlert = () => {
+const PointAlert = ({show, positionValue}) => {
     return(
-        <div class="point1">
+        show == "true" ? <div class="point1" style = {(positionValue)}>
             <div class="point2">
                 <div class="point3">
                 </div>
             </div>
-        </div>
+        </div> : null
     )
 }
 export default PointAlert;
