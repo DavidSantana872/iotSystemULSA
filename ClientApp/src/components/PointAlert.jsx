@@ -83,7 +83,7 @@ const PointAlert = ({show, positionValue, metric}) => {
         }, [metric]
     )
     return(
-        show == "true" ? <div class="point1" style = {styleData}>
+        show === "true" ? <div class="point1" style = {styleData}>
             <div class="point2" style={{background: point2Color()}}>
                 <div class="point3" style={{background: point3Color()}}>
                 </div>

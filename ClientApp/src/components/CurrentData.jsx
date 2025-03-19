@@ -1,4 +1,4 @@
-import React, { useContext, useEffect,  } from "react";
+import React, { useContext } from "react";
 import "./CurrentData.css"
 import "./MainView.css"
 import TargetCurrentData from "./TargetCurrentData";
@@ -51,8 +51,21 @@ const CurrentData = () => {
             <div className="slider-dts">
                 <div>
                     {
-                        [12,32,34].map((element, index) => 
-                            <TargetCurrentData key={index} title="Titulo" value={element}></TargetCurrentData>
+                        [
+                            {
+                                title: "Oxigeno",
+                                value: "23%"
+                            },
+                            {
+                                title: "Humedad",
+                                value: "45%"
+                            },
+                            {
+                                title: "Sensacion",
+                                value: "23°"
+                            }
+                        ].map((element, index) => 
+                            <TargetCurrentData key={index} id={index} title={element.title} value={element.value}></TargetCurrentData>
                         )
                     }
                 </div>
