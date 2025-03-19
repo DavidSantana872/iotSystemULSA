@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./PointAlert.css"
 const PointAlert = ({show, positionValue, metric}) => {
     /*
@@ -66,11 +66,21 @@ const PointAlert = ({show, positionValue, metric}) => {
         }
     }
 
-    const [styleData, setStyleData] = (
+    const [styleData, setStyleData] = useState(
         {
             ...(positionValue),
             background: point1Color()
         }
+    )
+    useEffect(
+        () => {
+            setStyleData(
+                {
+                    ...(positionValue),
+                    background: point1Color()
+                }
+            )
+        }, [metric]
     )
     return(
         show == "true" ? <div class="point1" style = {styleData}>
