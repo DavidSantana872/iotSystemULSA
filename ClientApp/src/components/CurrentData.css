@@ -66,12 +66,11 @@
 }
 .slider-dts{
     margin-top: 24px;
-
     border-radius: 12px;
     height: 212px;
     overflow-x: scroll;
     overflow-y: hidden;
-    background-color: rgb(38, 38, 38, 0.59);
+    
 }
 #btn-close-current-data{
     width: 43px;
@@ -88,14 +87,19 @@
     width: min-content;
 }
 .target-current-data{
-    width: 200px;
-    height: 175px;
     margin-right: 24px;
     border-radius: 12px;
-    border : solid 1px white
+    background-size: cover;
 }
 .target-current-data > div{
-    margin: 16px;
+
+    width: min-content;
+    margin: 0px;
+    width: calc(200px - 32px);
+    height: calc(175px - 32px);
+    border-radius: 12px;
+    padding: 16px;
+    background: #000000;
 }
 .target-current-data-value, .target-current-data-title{
     color: var(--text-color);
@@ -110,7 +114,6 @@
 }
 .grafico-dts{
     height: 48px;
-    border: solid 1px white;
     width: 100%;
 }
 

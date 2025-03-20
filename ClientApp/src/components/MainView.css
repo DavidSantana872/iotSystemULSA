@@ -51,6 +51,8 @@
 }
 .lista-leyenda > li{
     margin-bottom: 8px;
+    display: flex;
+    align-items: center;
 }
 .lista-leyenda > li > img{
     width: 24px;

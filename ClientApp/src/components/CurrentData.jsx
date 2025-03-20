@@ -57,7 +57,7 @@ const CurrentData = () => {
                                 value: "23%"
                             },
                             {
-                                title: "Humedad",
+                                title: "Sonido",
                                 value: "45%"
                             },
                             {
