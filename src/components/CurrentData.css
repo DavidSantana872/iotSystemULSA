@@ -70,6 +70,7 @@
     height: 212px;
     overflow-x: scroll;
     overflow-y: hidden;
+    background-color: black;
     
 }
 #btn-close-current-data{
@@ -90,6 +91,7 @@
     margin-right: 24px;
     border-radius: 12px;
     background-size: cover;
+    border: #67676782 1px solid;
 }
 .target-current-data > div{
 
