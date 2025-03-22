@@ -54,10 +54,10 @@ h1{
 
 .section-welcome, .animate{
   padding: 0px;
-  height: 100vh;
   animation-name: aparicion;
   animation-duration: 2000ms;
   animation-fill-mode: both;
+  height: 65vh;
 }
 .section-welcome > div > div{
   margin: 24px;
@@ -88,13 +88,18 @@ h1{
     opacity: 1;
   }
 }
+.gif-box{
+  height: 40%;
+}
 .gif-iot{
   opacity: 0.1;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
 }
 .info-box-welcome{
   background-color: #2a2b2b;
-  border: 1px solid #2a2b2b ;
   height: calc(100%);
 }
 #btn-go-app{

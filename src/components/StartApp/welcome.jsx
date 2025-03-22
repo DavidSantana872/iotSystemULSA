@@ -25,7 +25,9 @@ const welcome = () => {
     return(
        
         <section class="section-welcome" id="section-welcome">
-            <img class="gif-iot" src={gifIot} alt="" />
+            <div className="gif-box">
+                <img class="gif-iot" src={gifIot} alt="" />
+            </div>
             <div class="info-box-welcome">
                 <div>
                     <p class="title">
