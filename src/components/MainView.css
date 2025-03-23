@@ -93,6 +93,7 @@ footer{
     text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .box-title-sector > img {
     width: 24px;
