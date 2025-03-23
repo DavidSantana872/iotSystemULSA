@@ -21,6 +21,7 @@ import eye from "./../resources/icon/eye.svg"
 import { counterContext } from "./../Context/counterContext";
 import CurrentData from "./CurrentData";
 import PointAlert from "./PointAlert.jsx";
+import Live from "./Live.jsx";
 import anime from "animejs";
 const MapView = () => {
     const {setShowDetails, currentMetric} = useContext(counterContext)
@@ -82,7 +83,7 @@ const MapView = () => {
                         left: 200px;
                     */
                 }
-                 <div class="box-title-sector opacity" style={styleElement(-14, 92)}>
+                 <div class="box-title-sector" style={styleElement(-14, 92)}>
                     <img class="filter" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
@@ -90,23 +91,23 @@ const MapView = () => {
                 <img src={campoFutbol} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector2")}} style = {styleElement(23, 342)}>
-                <div class="box-title-sector opacity" style={styleElement(-13, 116)}>
+                <div class="box-title-sector" style={styleElement(-13, 116)}>
                     <img class="filter" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
                 <img src={campoBeisbol} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector3")}} style = {styleElement(626.79, 173.69)}>
-                <div class="box-title-sector opacity" style={styleElement(-1, 1)}>
-                    <p className="title-sector">Fuente ULSA</p>
+                <div class="box-title-sector" style={styleElement(-1, 1)}>
+                    <p className="title-sector"><Live></Live> Fuente ULSA</p>
                     <img class="filter" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-5, -30)}></PointAlert>
                 <img src={Group16} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector4")}} style = {styleElement(652, 223)}>
-                <div class="box-title-sector opacity" style={styleElement(-1, 8)}>
-                    <p className="title-sector">Mesas Comedor</p>
+                <div class="box-title-sector" style={styleElement(-1, 8)}>
+                    <p className="title-sector"><Live></Live> Mesas Comedor</p>
                     <img class="filter" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(0, -25)}></PointAlert>
@@ -122,8 +123,8 @@ const MapView = () => {
                 <img src={Vector25} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("sector8")}} style = {styleElement(753, 235.5)}>
-                <div class="box-title-sector opacity" style={styleElement(-1, 16)}>
-                    <p className="title-sector">Kiosco D</p>
+                <div class="box-title-sector" style={styleElement(-1, 16)}>
+                    <p className="title-sector"><Live></Live> Kiosco D</p>
                     <img class="filter" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(20, -15)}></PointAlert>
@@ -139,8 +140,8 @@ const MapView = () => {
                 <img src={Vector33} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector12")}} style = {styleElement(549, 91)}>
-                <div class="box-title-sector opacity" style={styleElement(-1, 0)}>
-                    <p className="title-sector">Kiosco A</p>
+                <div class="box-title-sector" style={styleElement(-1, 0)}>
+                    <p className="title-sector"><Live></Live> Kiosco A</p>
                     <img class="filter" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-15, -30)}></PointAlert>
@@ -156,8 +157,8 @@ const MapView = () => {
                 <img src={Vector39} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("sector16")}} style = {styleElement(509, 201)}>
-                <div class="box-title-sector opacity" style={styleElement(-1, 10)}>
-                    <p className="title-sector">Kiosco Sala Maestros</p>
+                <div class="box-title-sector" style={styleElement(-1, 10)}>
+                    <p className="title-sector"><Live></Live> Kiosco Sala Maestros</p>
                     <img class="filter" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(5, -20)}></PointAlert>

@@ -91,6 +91,8 @@ footer{
     font-weight: 600;
     width: 100%;
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 .box-title-sector > img {
     width: 24px;

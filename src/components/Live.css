@@ -1,0 +1,43 @@
+.Live{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min-content;
+    position: relative;
+    width: 6px;
+    height: 6px;
+    margin-right: 4px;
+
+}
+.Live1{
+    width: 6px;
+    height : 6px;
+    border-radius: 100%;
+    background: rgb(255, 0, 0);
+    position: absolute;
+    left: 0px;
+
+}
+.Live2{
+    width: 12px;
+    height : 12px;
+    border-radius: 100%;
+    background: rgba(255, 0, 0, 0.546);
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    animation-name: Live;
+    animation-duration: 950ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+
+    transform-origin: center; 
+}
+@keyframes Live{
+    from{
+        transform: scale(0.5);
+    }
+    to{
+        transform: scale(1);
+    }
+}
