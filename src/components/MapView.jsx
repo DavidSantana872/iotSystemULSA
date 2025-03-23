@@ -84,7 +84,7 @@ const MapView = () => {
                     */
                 }
                  <div class="box-title-sector" style={styleElement(-14, 92)}>
-                    <img class="filter" src={eye} alt="Show!" />
+                    <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
                 
@@ -92,7 +92,7 @@ const MapView = () => {
             </span>
             <span onClick={()=>{showDeatilsFunction("sector2")}} style = {styleElement(23, 342)}>
                 <div class="box-title-sector" style={styleElement(-13, 116)}>
-                    <img class="filter" src={eye} alt="Show!" />
+                    <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
                 <img src={campoBeisbol} alt="" />
@@ -100,7 +100,7 @@ const MapView = () => {
             <span onClick={()=>{showDeatilsFunction("sector3")}} style = {styleElement(626.79, 173.69)}>
                 <div class="box-title-sector" style={styleElement(-1, 1)}>
                     <p className="title-sector"><Live></Live> Fuente ULSA</p>
-                    <img class="filter" src={eye} alt="Show!" />
+                    <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-5, -30)}></PointAlert>
                 <img src={Group16} alt="" />
@@ -108,7 +108,7 @@ const MapView = () => {
             <span onClick={()=>{showDeatilsFunction("sector4")}} style = {styleElement(652, 223)}>
                 <div class="box-title-sector" style={styleElement(-1, 8)}>
                     <p className="title-sector"><Live></Live> Mesas Comedor</p>
-                    <img class="filter" src={eye} alt="Show!" />
+                    <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(0, -25)}></PointAlert>
                 <img src={Vector31} alt="" />
@@ -125,7 +125,7 @@ const MapView = () => {
             <span onClick={()=>{showDeatilsFunction("sector8")}} style = {styleElement(753, 235.5)}>
                 <div class="box-title-sector" style={styleElement(-1, 16)}>
                     <p className="title-sector"><Live></Live> Kiosco D</p>
-                    <img class="filter" src={eye} alt="Show!" />
+                    <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(20, -15)}></PointAlert>
                 <img src={Vector32} alt="" />
@@ -142,7 +142,7 @@ const MapView = () => {
             <span onClick={()=> {showDeatilsFunction("sector12")}} style = {styleElement(549, 91)}>
                 <div class="box-title-sector" style={styleElement(-1, 0)}>
                     <p className="title-sector"><Live></Live> Kiosco A</p>
-                    <img class="filter" src={eye} alt="Show!" />
+                    <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-15, -30)}></PointAlert>
                 <img src={Vector38} alt="" />
@@ -159,7 +159,7 @@ const MapView = () => {
             <span onClick={()=> {showDeatilsFunction("sector16")}} style = {styleElement(509, 201)}>
                 <div class="box-title-sector" style={styleElement(-1, 10)}>
                     <p className="title-sector"><Live></Live> Kiosco Sala Maestros</p>
-                    <img class="filter" src={eye} alt="Show!" />
+                    <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(5, -20)}></PointAlert>
                 <img src={Vector28} alt="" />
