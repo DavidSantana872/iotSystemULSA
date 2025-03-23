@@ -2,15 +2,26 @@ import React, { useContext } from "react";
 import "./CurrentData.css"
 import "./MainView.css"
 import TargetCurrentData from "./TargetCurrentData";
-import iconCD from "./../resources/icon/temperatura.png"
+import iconTemperatura from "./../resources/icon/temperatura.png"
+import iconOxigeno from "./../resources/icon/oxigeno.png"
+import iconSound from "./../resources/icon/sound.png"
 import { counterContext } from "./../Context/counterContext";
 import Live from "./Live.jsx"
 import anime from "animejs";
 
 const CurrentData = () => {
   
-
     const {showDetails, setShowDetails, currentMetric} = useContext(counterContext)
+    
+    const icon = () => {
+        if(currentMetric === "Oxigeno"){
+            return iconOxigeno
+        }else if (currentMetric === "Sonido"){
+            return iconSound
+        }else{
+            return iconTemperatura
+        }
+    }
     return(
         showDetails ? 
         <section className="current-data" style={{}}>
@@ -36,9 +47,10 @@ const CurrentData = () => {
                 {showDetails} ULSA
             </p>
             <div className="selected-current-data">
-                <div>
+                <div style={{top: "-20px",
+  position: "relative"}}>
                     <p>
-                    <img className="icon-current-data" src={iconCD}>
+                    <img className="icon-current-data" src={icon()}>
                     </img>
                         {currentMetric}
                     </p>

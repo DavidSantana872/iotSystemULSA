@@ -113,13 +113,13 @@ const MapView = () => {
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(0, -25)}></PointAlert>
                 <img src={Vector31} alt="" />
             </span>
-            <span onClick={()=>{showDeatilsFunction("sector5")}} style = {styleElement(417, 122)}>
+            <span onClick={()=>{}} style = {styleElement(417, 122)}>
                 <img src={Vector36} alt="" />
             </span>
-            <span onClick={()=>{showDeatilsFunction("sector6")}} style = {styleElement(808, 216.5)}>
+            <span onClick={()=>{}} style = {styleElement(808, 216.5)}>
                 <img src={Vector45} alt="" />
             </span>
-            <span onClick={()=>{showDeatilsFunction("sector7")}} style = {styleElement(505,135)}>
+            <span onClick={()=>{}} style = {styleElement(505,135)}>
                 <img src={Vector25} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("Kiosco D")}} style = {styleElement(753, 235.5)}>
@@ -130,13 +130,13 @@ const MapView = () => {
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(20, -15)}></PointAlert>
                 <img src={Vector32} alt="" />
             </span>
-            <span onClick={()=>{showDeatilsFunction("sector9")}} style = {styleElement(605, 30)}>
+            <span onClick={()=>{}} style = {styleElement(605, 30)}>
                 <img src={Vector37} alt="" />
             </span>
-            <span onClick={()=> {showDeatilsFunction("sector10")}} style = {styleElement(626, 76)}>
+            <span onClick={()=> {}} style = {styleElement(626, 76)}>
                 <img src={Vector26} alt="" />
             </span>
-            <span onClick={()=> {showDeatilsFunction("sector11")}} style = {styleElement(843, 147.5)}>
+            <span onClick={()=> {}} style = {styleElement(843, 147.5)}>
                 <img src={Vector33} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("Kiosco A")}} style = {styleElement(549, 91)}>
@@ -147,13 +147,13 @@ const MapView = () => {
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-15, -30)}></PointAlert>
                 <img src={Vector38} alt="" />
             </span>
-            <span onClick={()=> {showDeatilsFunction("sector13")}} style = {styleElement(731, 204)}>
+            <span onClick={()=> {}} style = {styleElement(731, 204)}>
                 <img src={Vector27} alt="" />
             </span>
-            <span onClick={()=> {showDeatilsFunction("sector14")}} style = {styleElement(716, 108)}>
+            <span onClick={()=> {}} style = {styleElement(716, 108)}>
                 <img src={Vector34} alt="" />
             </span>
-            <span onClick={()=> {showDeatilsFunction("sector15")}} style = {styleElement(400, 201)}>
+            <span onClick={()=> {}} style = {styleElement(400, 201)}>
                 <img src={Vector39} alt="" />
             </span>
             <span onClick={()=> {showDeatilsFunction("Kiosco Sala Maestros")}} style = {styleElement(509, 201)}>
@@ -164,10 +164,10 @@ const MapView = () => {
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(5, -20)}></PointAlert>
                 <img src={Vector28} alt="" />
             </span>
-            <span onClick={()=> {showDeatilsFunction("sector17")}} style = {styleElement(768, 135)}>
+            <span onClick={()=> {}} style = {styleElement(768, 135)}>
                 <img src={Vector35} alt="" />
             </span>
-            <span onClick={()=> {showDeatilsFunction("sector18")}} style = {styleElement(489, 254)}>
+            <span onClick={()=> {}} style = {styleElement(489, 254)}>
                 <img src={Vector40} alt="" />
             </span>
         </section>

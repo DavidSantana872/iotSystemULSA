@@ -59,6 +59,11 @@ h1{
   animation-fill-mode: both;
   height: 65vh;
 }
+.more-information{
+  animation-name: aparicion;
+  animation-duration: 2000ms;
+  animation-fill-mode: both;
+}
 .section-welcome > div > div{
   margin: 24px;
   margin-top: 0px;

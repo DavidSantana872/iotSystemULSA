@@ -23,3 +23,84 @@ body{
 b{
     color: var(--text-color)
 }
+
+.more-information{
+    position: absolute;
+    top: 0px;
+    background-color: var(--text-color);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    text-align: left;
+    overflow: scroll;
+}
+.more-information > div {
+    margin: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.more-information > div  > img {
+    margin-bottom: 32px;
+    animation-name: Live;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    animation-direction: alternate-reverse;
+}
+.black-title{
+    color: rgba(0, 0, 0, 0.714) !important;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+.information{
+    font-size: 14px;
+    color: var(--black-transparent) !important;
+}
+.information > li > span{
+    font-weight: bold;
+}
+.information > li{
+    margin-top: 8px;
+}
+h3{
+    color: rgba(0, 0, 0, 0.714) !important;
+    margin-top: 32px;
+    margin-bottom: 12px;
+}
+a{
+    font-size: 12px;
+}
+ul{
+    list-style: none;
+}
+.integrantes{
+    font-size: 16px;
+    color:rgba(0, 0, 0, 0.714);
+    font-weight: 600;
+}
+.integrantes > li {
+    margin: 4px;
+}
+.close-btn{
+    background-color: #e7e7e756;
+    border: none;
+    width: 43px;
+    height: 43px;
+    right: 12px;
+    top: 12px;
+    position: absolute;
+    color: #5656567a;
+    font-weight: 400;
+    font-size: 24px;
+    border-radius: 12px;
+}
+@keyframes Live{
+    from{
+        transform: scale(0.9);
+        
+    }
+    to{
+        transform: scale(1);
+    }
+}
