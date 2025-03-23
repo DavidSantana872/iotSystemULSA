@@ -42,7 +42,7 @@ b{
 }
 .more-information > div  > img {
     margin-bottom: 32px;
-    animation-name: Live;
+    animation-name: scaleImg;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     transform-origin: center;
@@ -95,7 +95,7 @@ ul{
     font-size: 24px;
     border-radius: 12px;
 }
-@keyframes Live{
+@keyframes scaleImg{
     from{
         transform: scale(0.9);
         
