@@ -3,7 +3,7 @@
    /* width: 390px;*/
     width:100%;
     height: 548px;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     bottom: -50px;
     background-image: url("./../resources/img/sectores-ulsa/image.png");
@@ -117,13 +117,16 @@
 .grafico-dts{
     height: 48px;
     width: 100%;
+    display: flex;
 }
-
+canvas {
+    scale: 1;
+}
 @keyframes deslizar {
     from{
         bottom: -550px;
     }to{
-        bottom: -50px;
+        bottom: -70px;
     }
     
 }

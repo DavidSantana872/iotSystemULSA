@@ -78,3 +78,22 @@ footer{
     align-self: center;
     align-items: center;
 }
+.box-title-sector{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title-sector{
+    color: var(--text-color);
+    font-size: 10px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+.box-title-sector > img {
+    width: 24px;
+}
+.opacity{
+    opacity: 0.7;
+}

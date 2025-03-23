@@ -33,7 +33,7 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
 
         // Configuración de estilo del gráfico
         const padding = 0;  // Padding alrededor del gráfico
-        const strokeWidth = 2;  // Ancho de la línea del gráfico
+        const strokeWidth = 6;  // Ancho de la línea del gráfico
 
         // Limpia el canvas
         ctx.clearRect(0, 0, width, height);
@@ -69,16 +69,16 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
             ctx.stroke();
     
             // Crea un gradiente para el relleno bajo la línea
-             gradient.addColorStop(0, 'rgba(0, 115, 255, 0)'); // Rojo semi-transparente en la parte superior
-            gradient.addColorStop(1, 'rgba(0, 115, 255, 0.46)'); // Amarillo transparente hacia abajo
+            gradient.addColorStop(0, 'rgba(0, 115, 255, 0.0)'); // Rojo semi-transparente en la parte superior
+            gradient.addColorStop(1, 'rgba(0, 115, 255, 0.4)'); // Amarillo transparente hacia abajo
         }
         else if(title === "Oxigeno"){
             ctx.strokeStyle = 'rgb(0, 255, 195)';
             ctx.lineWidth = strokeWidth;
             ctx.stroke();
     
-            gradient.addColorStop(0, 'rgba(0, 255, 195, 0)'); // Rojo semi-transparente en la parte superior
-            gradient.addColorStop(1, 'rgba(0, 255, 195, 0.46)'); // Amarillo transparente hacia abajo
+            gradient.addColorStop(0, 'rgba(0, 255, 195, 0.0)'); // Rojo semi-transparente en la parte superior
+            gradient.addColorStop(1, 'rgba(0, 255, 195, 0.4)'); // Amarillo transparente hacia abajo
 
         }
         else{
@@ -87,8 +87,8 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
             ctx.stroke();
     
             // Crea un gradiente para el relleno bajo la línea
-             gradient.addColorStop(0, 'rgba(255, 0, 255, 0)'); // Rojo semi-transparente en la parte superior
-            gradient.addColorStop(1, 'rgba(255, 0, 255, 0.46)'); // Amarillo transparente hacia abajo
+             gradient.addColorStop(0, 'rgba(255, 0, 255, 0.0)'); // Rojo semi-transparente en la parte superior
+            gradient.addColorStop(1, 'rgba(255, 0, 255, 0.4)'); // Amarillo transparente hacia abajo
 
         }
         // Rellena bajo la línea
@@ -113,7 +113,7 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
                         {value}
                     </p>
                     <div className="grafico-dts">
-                        <canvas ref={canvasRef} width="168" height="48"></canvas>
+                        <canvas ref={canvasRef} width="1008" height="288"></canvas>
                     </div>
                 </div>
             </div>
