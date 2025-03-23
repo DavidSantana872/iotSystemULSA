@@ -6,6 +6,7 @@ import temperatura from "./../resources/icon/temperatura.png"
 import oxigenoLeyenda from "./../resources/icon/oxigenoLeyenda.png"
 import temperaturaLeyenda from "./../resources/icon/temperaturaLeyenda.png"
 import sonidoLeyenda from "./../resources/icon/sonidoLeyenda.png"
+import Live from "./Live";
 const Options = () => {
     return(
         <section className="option-section">
@@ -31,6 +32,7 @@ const Options = () => {
                 <li>
                     <img src={temperaturaLeyenda} alt="" />Temperatura excelente
                 </li>
+                
               
             </ul>
         </section>

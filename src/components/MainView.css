@@ -58,6 +58,14 @@
     width: 24px;
     margin-right: 6px;
 }
+.Live-information{
+    padding-top: 4px;
+}
+.Live-information > :first-child{
+    width: 24px;
+    margin-right: 0px;
+    margin-left: 10%;
+}
 
 .box-map{
     width: 100vw;

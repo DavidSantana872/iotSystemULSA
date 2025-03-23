@@ -4,18 +4,19 @@ import "./MainView.css"
 import TargetCurrentData from "./TargetCurrentData";
 import iconCD from "./../resources/icon/temperatura.png"
 import { counterContext } from "./../Context/counterContext";
+import Live from "./Live.jsx"
 import anime from "animejs";
 
 const CurrentData = () => {
   
 
-    const {showDetails, setShowDetails} = useContext(counterContext)
+    const {showDetails, setShowDetails, currentMetric} = useContext(counterContext)
     return(
         showDetails ? 
         <section className="current-data" style={{}}>
            <div>
            <div className="current-data-header">
-                <p className="title-current-data-header">Última actualización 12 Octubre 2024 12:00:00 AM</p>
+                <Live></Live><p className="title-current-data-header">Última actualización 12 Octubre 2024 12:00:00 AM</p>
                 <button onClick={() => {
                         anime({
                             targets: ".current-data",
@@ -39,7 +40,7 @@ const CurrentData = () => {
                     <p>
                     <img className="icon-current-data" src={iconCD}>
                     </img>
-                        Temperatura
+                        {currentMetric}
                     </p>
                 </div>
                 <div className="value-current-data">
@@ -61,11 +62,11 @@ const CurrentData = () => {
                                 value: "45%"
                             },
                             {
-                                title: "Sensacion",
+                                title: "Sensation",
                                 value: "23°"
                             }
                         ].map((element, index) => 
-                            <TargetCurrentData key={index} id={index} title={element.title} value={element.value}></TargetCurrentData>
+                            currentMetric != element.title ? <TargetCurrentData key={index} id={index} title={element.title} value={element.value}></TargetCurrentData> : null
                         )
                     }
                 </div>
