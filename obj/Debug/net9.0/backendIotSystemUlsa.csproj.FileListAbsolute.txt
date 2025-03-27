@@ -31,3 +31,4 @@
 /home/davidsantanag01/backendIotSystemUlsa/obj/Debug/net9.0/backendI.2B5A32FB.Up2Date
 /home/davidsantanag01/backendIotSystemUlsa/obj/Debug/net9.0/backendIotSystemUlsa.genruntimeconfig.cache
 /home/davidsantanag01/backendIotSystemUlsa/obj/Debug/net9.0/ref/backendIotSystemUlsa.dll
+/home/davidsantanag01/backendIotSystemUlsa/obj/Debug/net9.0/backendIotSystemUlsa.sourcelink.json
