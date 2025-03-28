@@ -1,4 +1,4 @@
-@backendIotSystemUlsa_HostAddress = http://localhost:5062
+@backendIotSystemUlsa_HostAddress = http://localhost:5293
 
 GET {{backendIotSystemUlsa_HostAddress}}/weatherforecast/
 Accept: application/json
