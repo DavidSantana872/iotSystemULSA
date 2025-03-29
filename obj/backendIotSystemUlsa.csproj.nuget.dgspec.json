@@ -54,23 +54,27 @@
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.3, )"
             },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.3, )"
             },
             "Microsoft.Extensions.Logging.Abstractions": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.3, )"
             },
             "Microsoft.Extensions.Options": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.3, )"
             },
             "Microsoft.Extensions.Primitives": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.3, )"
             }
           },
           "imports": [

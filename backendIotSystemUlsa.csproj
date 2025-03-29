@@ -9,13 +9,14 @@
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.SqlServer" Version="9.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
 
-    <!-- Forzar versiones correctas para evitar "package downgrade" -->
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Primitives" Version="9.0.0" />
+    <!-- Asegurarse de usar la misma versión para los paquetes Microsoft.Extensions.* -->
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="9.0.3" />
   </ItemGroup>
 
 </Project>
