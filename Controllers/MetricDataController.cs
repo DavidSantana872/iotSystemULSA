@@ -79,7 +79,8 @@ namespace backendIotSystemUlsa.Controllers{
                                     context.MonitoringStations
                                         .Where(ms => ms.SectorId == s.Id)
                                         .Select(ms => ms.Id)
-                                        .FirstOrDefault())
+                                        .FirstOrDefault()
+                                )
                                 .Select(md => new {
                                     Value = md.Value,
                                     RegistrationDate = md.RegistrationDate
@@ -92,6 +93,50 @@ namespace backendIotSystemUlsa.Controllers{
                 }
             ).ToListAsync();
             return orders;
+        }
+
+
+
+        [HttpGet("sector/{sectorName}")]
+        public async Task<IActionResult> GetMetricsBySector(string sectorName) {
+            object? Data = null;
+            int? idSector = await context.Sectors
+                .Where(Sectr => Sectr.Name == sectorName)
+                .Select(Sectr => Sectr.Id)
+                .FirstOrDefaultAsync();
+            if (idSector == null) {
+                return NotFound();
+            }else{
+                // obtener el id de la estacion 
+                int? idStation = await context.MonitoringStations
+                    .Where(ms => ms.SectorId == idSector)
+                    .Select(ms => ms.Id)
+                    .FirstOrDefaultAsync();
+                if (idStation == null) {
+                    return NotFound();
+                }else{
+                    // obtener de data metrica los ultimos registro un maximo de 10 
+                    Data = await context.Metrics
+                        .Select(m => new {
+                            Name = m.Name,
+                            Data = context.MetricData
+                                .Where(md => md.MetricId == m.Id && md.StationsId == idStation)
+                                .Select(md => new {
+                                    Value = md.Value,
+                                    RegistrationDate = md.RegistrationDate
+                                })
+                                .OrderByDescending(md => md.RegistrationDate)
+                                .Take(5)
+                                .ToList()
+                        })
+                        .ToListAsync();
+                    if (Data == null) {
+                        return NotFound();
+                    }else{
+                        return Ok(Data);
+                    }
+                }
+            }
         }
        
     }
