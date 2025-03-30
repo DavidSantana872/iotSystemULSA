@@ -53,7 +53,7 @@ namespace backendIotSystemUlsa.Migrations
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("StationsId")
+                    b.Property<int?>("StationsId")
                         .HasColumnType("int");
 
                     b.Property<int>("Value")
@@ -76,7 +76,7 @@ namespace backendIotSystemUlsa.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("SectorId")
+                    b.Property<int?>("SectorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
@@ -86,7 +86,8 @@ namespace backendIotSystemUlsa.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("SectorId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[SectorId] IS NOT NULL");
 
                     b.ToTable("MonitoringStations");
                 });
@@ -117,10 +118,9 @@ namespace backendIotSystemUlsa.Migrations
                         .IsRequired();
 
                     b.HasOne("backendIotSystemUlsa.Models.MonitoringStations", "Stations")
-                        .WithMany()
+                        .WithMany("Metrics")
                         .HasForeignKey("StationsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Metric");
 
@@ -132,10 +132,14 @@ namespace backendIotSystemUlsa.Migrations
                     b.HasOne("backendIotSystemUlsa.Models.Sectors", "Sector")
                         .WithOne("MonitoringStation")
                         .HasForeignKey("backendIotSystemUlsa.Models.MonitoringStations", "SectorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Sector");
+                });
+
+            modelBuilder.Entity("backendIotSystemUlsa.Models.MonitoringStations", b =>
+                {
+                    b.Navigation("Metrics");
                 });
 
             modelBuilder.Entity("backendIotSystemUlsa.Models.Sectors", b =>
