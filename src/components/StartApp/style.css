@@ -57,7 +57,7 @@ h1{
   animation-name: aparicion;
   animation-duration: 2000ms;
   animation-fill-mode: both;
-  height: 65vh;
+  height: calc(100vh - 48px);
 }
 .more-information{
   animation-name: aparicion;

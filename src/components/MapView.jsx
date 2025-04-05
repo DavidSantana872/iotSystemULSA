@@ -24,7 +24,18 @@ import PointAlert from "./PointAlert.jsx";
 import Live from "./Live.jsx";
 import anime from "animejs";
 const MapView = () => {
-    const {setShowDetails, currentMetric} = useContext(counterContext)
+    const {setShowDetails, currentMetric, stationsOnline} = useContext(counterContext)
+    
+    const detectStations = (sector) => {
+        let found = false;
+        for (const station of stationsOnline) {
+            if (station.sector.name === sector) {
+                found = true;
+                break;
+            }
+        }
+        return found;
+    };
     const styleElement = (x, y) => {
         return{
             position: "absolute",
@@ -34,7 +45,6 @@ const MapView = () => {
     }
     const showDeatilsFunction = (sector) => {
         setShowDetails(sector)
-        console.log(sector)
     }
     useEffect(() => {
         const animateScroll = () => {
@@ -95,11 +105,11 @@ const MapView = () => {
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
-                <img src={campoBeisbol} alt="" />
+                <img src={campoBeisbol} alt="Campo de beislbol" />
             </span>
             <span onClick={()=>{showDeatilsFunction("Fuente ULSA")}} style = {styleElement(626.79, 173.69)}>
                 <div class="box-title-sector" style={styleElement(-1, 1)}>
-                    <p className="title-sector"><Live></Live> Fuente ULSA</p>
+                    <p className="title-sector"><Live show={detectStations("Fuente ULSA")}></Live> Fuente ULSA</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-5, -30)}></PointAlert>
@@ -107,7 +117,7 @@ const MapView = () => {
             </span>
             <span onClick={()=>{showDeatilsFunction("Mesas Comedor")}} style = {styleElement(652, 223)}>
                 <div class="box-title-sector" style={styleElement(-1, 8)}>
-                    <p className="title-sector"><Live></Live> Mesas Comedor</p>
+                    <p className="title-sector"><Live show={detectStations("Mesas Comedor")}></Live> Mesas Comedor</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(0, -25)}></PointAlert>
@@ -124,7 +134,7 @@ const MapView = () => {
             </span>
             <span onClick={()=>{showDeatilsFunction("Kiosco D")}} style = {styleElement(753, 235.5)}>
                 <div class="box-title-sector" style={styleElement(-1, 16)}>
-                    <p className="title-sector"><Live></Live> Kiosco D</p>
+                    <p className="title-sector"><Live show={detectStations("Kiosco D")}></Live> Kiosco D</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(20, -15)}></PointAlert>
@@ -141,7 +151,7 @@ const MapView = () => {
             </span>
             <span onClick={()=> {showDeatilsFunction("Kiosco A")}} style = {styleElement(549, 91)}>
                 <div class="box-title-sector" style={styleElement(-1, 0)}>
-                    <p className="title-sector"><Live></Live> Kiosco A</p>
+                    <p className="title-sector"><Live show={detectStations("Kiosco A")}></Live> Kiosco A</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-15, -30)}></PointAlert>
@@ -158,7 +168,7 @@ const MapView = () => {
             </span>
             <span onClick={()=> {showDeatilsFunction("Kiosco Sala Maestros")}} style = {styleElement(509, 201)}>
                 <div class="box-title-sector" style={styleElement(-1, 10)}>
-                    <p className="title-sector"><Live></Live> Kiosco Sala Maestros</p>
+                    <p className="title-sector"><Live show={detectStations("Kiosco Sala Maestros")}></Live> Kiosco Sala Maestros</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
                 <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(5, -20)}></PointAlert>

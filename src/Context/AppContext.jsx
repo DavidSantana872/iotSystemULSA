@@ -5,8 +5,9 @@ const AppContext = ({children}) => {
     const [showApp, setShowApp] = useState(false)
     const [showDetails, setShowDetails] = useState(false)
     const [currentMetric, setCurrentMetric] = useState('Sonido')
+    const [stationsOnline, setStationsOnline] = useState([])
     return(
-        <counterContext.Provider value={{showApp, setShowApp, showDetails, setShowDetails, currentMetric, setCurrentMetric}}>
+        <counterContext.Provider value={{showApp, setShowApp, showDetails, setShowDetails, currentMetric, setCurrentMetric, stationsOnline, setStationsOnline}}>
         {children}
         </counterContext.Provider>
     );

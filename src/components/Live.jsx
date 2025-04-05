@@ -1,13 +1,13 @@
 import React from "react";
 import "./Live.css"
-const Live = () => {
+const Live = ({show}) => {
     return(
-        <div class="Live">
+        show ? <div class="Live">
             <div class="Live2">
             </div>
             <div class="Live1">
             </div>
-        </div>
+        </div> : null
     )
 } 
 export default Live;

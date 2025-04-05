@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Options from "./Options";
 import MapView from "./MapView";
 import Footer from "./Footer";
 import "./MainView.css"
 const MainView = () => {
+   
+
     return(
         <section className="animate">
             <div className="options-section">

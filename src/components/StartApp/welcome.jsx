@@ -1,8 +1,24 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import gifIot from "./../../resources/gif/iot-welcome.gif"
 import anime from "animejs";
 import { counterContext } from "../../Context/counterContext";
+import {TIME_POLLING} from "./../../utils/constants.js"
 const welcome = () => {
+
+    const {setStationsOnline, stationsOnline} = useContext(counterContext)
+    
+    useEffect( () => {
+        setInterval(
+        () => {
+            let api = "https://iotulsa.duckdns.org/api/stations"
+            let data = fetch(api)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setStationsOnline(data)
+            })
+        }, TIME_POLLING)
+    }, [])
 
     const {setShowApp} = useContext(counterContext)
     const changeComponent = () => {

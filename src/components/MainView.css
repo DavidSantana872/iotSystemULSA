@@ -68,11 +68,9 @@
 }
 
 .box-map{
-    width: 97vw;
-    height: 60vh;
+    width: 100vw;
+    height: 58vh;
     overflow-y: scroll;
-    /* ocultar barra scrool*/
-    scrollbar-width: none;
 }
 footer{ 
     position: fixed;

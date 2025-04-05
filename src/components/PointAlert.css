@@ -6,9 +6,9 @@
     background: rgb(0,72,255, 0.14);
     transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
     animation-name: creciendo;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
    	animation-iteration-count: infinite;
-   	animation-direction: alternate-reverse;
+   	/*animation-direction: alternate-reverse;*/
     transform-origin: center; 
 }
  .point2 {
@@ -18,9 +18,9 @@
     background: rgb(0,72,255, 0.29);
     transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
     animation-name: creciendo2;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
    	animation-iteration-count: infinite;
-   	animation-direction: alternate-reverse;
+   	/*animation-direction: alternate-reverse;*/
     transform-origin: center; 
 }
  .point3 {
@@ -30,9 +30,9 @@
     background:rgba(0, 72, 255, 0.35);
     transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
     animation-name: creciendo3;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
    	animation-iteration-count: infinite;
-   	animation-direction: alternate-reverse;
+   	/*animation-direction: alternate-reverse;*/
     transform-origin: center; 
 }
 @keyframes creciendo {
@@ -40,6 +40,7 @@
         transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg) scale(0);
     }
     to {
+        background: rgba(0, 72, 255, 0);
         transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg) scale(1.5);
     }
 }
@@ -48,6 +49,7 @@
         transform: rotateX(10deg) rotateY(0deg) rotateZ(45deg) scale(0);
     }
     to {
+         background: rgba(0, 72, 255, 0);
         transform: rotateX(10deg) rotateY(0deg) rotateZ(45deg) scale(0.7);
     }
 }
@@ -56,6 +58,7 @@
         transform: rotateX(10deg) rotateY(0deg) rotateZ(45deg) scale(0.5);
     }
     to {
+         background: rgb(0,72,255, 0);
         transform: rotateX(10deg) rotateY(0deg) rotateZ(45deg) scale(0.5);
     }
 }
