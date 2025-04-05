@@ -2,21 +2,34 @@ import React, {useContext, useEffect} from "react";
 import gifIot from "./../../resources/gif/iot-welcome.gif"
 import anime from "animejs";
 import { counterContext } from "../../Context/counterContext";
-import {TIME_POLLING} from "./../../utils/constants.js"
+import {TIME_POLLING, BASE_URL} from "./../../utils/constants.js"
 const welcome = () => {
 
-    const {setStationsOnline, stationsOnline} = useContext(counterContext)
+    const {setStationsOnline, setMetricsAll} = useContext(counterContext)
     
+    const getStationsOnline = async () => {
+        let api = `${BASE_URL}/stations`
+        let data = fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            //console.log(data)
+            setStationsOnline(data)
+        })
+    }
+    const getDataMetrics = async () => {
+        let data = fetch(`${BASE_URL}/metrics`)
+        .then(response => response.json())
+        .then(data => {
+            setMetricsAll(data)
+        })
+    }
     useEffect( () => {
+        getStationsOnline()
+        getDataMetrics()
         setInterval(
         () => {
-            let api = "https://iotulsa.duckdns.org/api/stations"
-            let data = fetch(api)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                setStationsOnline(data)
-            })
+           getStationsOnline()
+           getDataMetrics()
         }, TIME_POLLING)
     }, [])
 

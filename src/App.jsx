@@ -5,8 +5,7 @@ import AppContext from './Context/AppContext.jsx';
 //import AppContext from './Context/AppContext.jsx';
 export default class App extends Component {
   static displayName = App.name;
-  
-  
+
   render () {
     return (
       <AppContext>

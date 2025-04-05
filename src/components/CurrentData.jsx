@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./CurrentData.css"
 import "./MainView.css"
 import TargetCurrentData from "./TargetCurrentData";
@@ -11,8 +11,20 @@ import anime from "animejs";
 
 const CurrentData = () => {
   
-    const {showDetails, setShowDetails, currentMetric} = useContext(counterContext)
+    const {showDetails, setShowDetails, currentMetric, metricsAll} = useContext(counterContext)
     
+    const [data, setData] = useState('')
+    useEffect(
+        () => {
+         /*   setData(
+                metricsAll[showDetails]
+            )*/
+           if(showDetails){
+                setData(metricsAll[showDetails])
+                console.log("data", data)
+           }
+        }, [showDetails]
+    )
     const icon = () => {
         if(currentMetric === "Oxigeno"){
             return iconOxigeno
@@ -23,11 +35,11 @@ const CurrentData = () => {
         }
     }
     return(
-        showDetails ? 
+        showDetails && data ? 
         <section className="current-data" style={{}}>
            <div>
            <div className="current-data-header">
-                <Live></Live><p className="title-current-data-header">Última actualización 12 Octubre 2024 12:00:00 AM</p>
+                <Live show={data.monitoringStations.status == "ONLINE" ? true : false}></Live><p className="title-current-data-header" >Última actualización {data.data[0].metricData.registrationDate}</p>
                 <button onClick={() => {
                         anime({
                             targets: ".current-data",
@@ -64,21 +76,8 @@ const CurrentData = () => {
             <div className="slider-dts">
                 <div>
                     {
-                        [
-                            {
-                                title: "Oxigeno",
-                                value: "23%"
-                            },
-                            {
-                                title: "Sonido",
-                                value: "45%"
-                            },
-                            {
-                                title: "Sensation",
-                                value: "23°"
-                            }
-                        ].map((element, index) => 
-                            currentMetric != element.title ? <TargetCurrentData key={index} id={index} title={element.title} value={element.value}></TargetCurrentData> : null
+                        data.data.map((element, index) => 
+                            currentMetric != element.title ? <TargetCurrentData key={index+element.name} id={index} title={element.name} value={element.metricData.value}></TargetCurrentData> : null
                         )
                     }
                 </div>

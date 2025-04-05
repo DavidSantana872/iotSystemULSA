@@ -24,7 +24,7 @@ import PointAlert from "./PointAlert.jsx";
 import Live from "./Live.jsx";
 import anime from "animejs";
 const MapView = () => {
-    const {setShowDetails, currentMetric, stationsOnline} = useContext(counterContext)
+    const {setShowDetails, currentMetric, stationsOnline, metricsAll} = useContext(counterContext)
     
     const detectStations = (sector) => {
         let found = false;
