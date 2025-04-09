@@ -5,7 +5,7 @@
 #include <ArduinoJson.h>
 
 //ESP-32 sector ID
-const int esp_sector_id = 1;
+const int esp_sector_id = 7;
 
 //DHT11 variables declaration*****************************************************************
 
@@ -40,13 +40,13 @@ const long intervalAir = 30000;   // 30 seconds
 const long intervalMQTT = 120000;   //  2 minutes for MQTT publish
 
 //WiFi credentials
-const char* ssid = "realme";
-const char* password = "1234567810";
+const char* ssid = "<network_name>";
+const char* password = "<network_password>";
 
 // MQTT Broker Setup 
-const char* mqtt_server = "23.236.57.23";
-const char* mqtt_user = "iot_ulsa";
-const char* mqtt_password = "iot_ulsa";
+const char* mqtt_server = "<mqtt_serverIP>";
+const char* mqtt_user = "<user_name>";
+const char* mqtt_password = "<user_password>";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -88,6 +88,7 @@ void setup() {
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   dht.begin(); 
+  delay(5000);
 }
 
 void loop() {
@@ -129,7 +130,7 @@ void control_state(){
 
 void readDHT11(){
 
-  //Capture temperature, humidity and index heat values
+  //Capture temperature, humidity and heat index values
   humidity = dht.readHumidity();      
   temperature = dht.readTemperature(); 
   
@@ -167,18 +168,14 @@ void readMicrophone(){
 void readAirQuality(){
 
   int analogValueRaw = analogRead(air_analog_pin);
-  int analogValue = map(analogValueRaw, 0, 4095, 0, 1023); // Scale the value to match the Pico's range
-  Serial.print("Analog Value (Raw): ");
-  Serial.print(analogValueRaw);
-  Serial.print(", Scaled Value: ");
-  Serial.print(analogValue);
+  int analogValue = map(analogValueRaw, 0, 4095, 0, 1023); 
 
-  if (analogValueRaw > max_air) {
-    max_air = analogValueRaw;
+  if (analogValue > max_air) {
+    max_air = analogValue;
   }
 
-  if (analogValueRaw < min_air) {
-    min_air = analogValueRaw;
+  if (analogValue < min_air) {
+    min_air = analogValue;
   }
 
 }
@@ -192,76 +189,42 @@ void send_data_mqtt(){
 
   calculate_avg();
 
-  StaticJsonDocument<512> doc;
+  create_json_and_send_data(3, "temperature", temperature);
+  create_json_and_send_data(4, "humidity", humidity);
+  create_json_and_send_data(5, "heat_index", heat_index);
+  create_json_and_send_data(6, "avg_sound_dB", avg_dB);
+  create_json_and_send_data(7, "min_sound_dB", min_dB);
+  create_json_and_send_data(9, "max_sound_dB", max_dB);
+  create_json_and_send_data(10, "avg_air", avg_air);
+  create_json_and_send_data(11, "min_air_quality", min_air);
+  create_json_and_send_data(12, "max_air_quality", max_air);
 
-  doc["sector_id"] = esp_sector_id;
-
-  JsonArray sensorReadings = doc.createNestedArray("sensor_readings");
-
-  // Temperature
-  JsonObject reading = sensorReadings.createNestedObject();
-  reading["id"] = 3;
-  reading["label"] = "temperature";
-  reading["value"] = temperature;
-
-  // Humidity
-  reading = sensorReadings.createNestedObject();
-  reading["id"] = 4;
-  reading["label"] = "humidity";
-  reading["value"] = humidity;
-
-  // Heat Index
-  reading = sensorReadings.createNestedObject();
-  reading["id"] = 5;
-  reading["label"] = "heat_index";
-  reading["value"] = heat_index;
-
-  // Avg Sound dB
-  reading = sensorReadings.createNestedObject();
-  reading["id"] = 6;
-  reading["label"] = "avg_sound_dB";
-  reading["value"] = avg_dB;
-
-  // Min Sound dB
-  reading = sensorReadings.createNestedObject();
-  reading["id"] = 7;
-  reading["label"] = "min_sound_dB";
-  reading["value"] = min_dB;
-
-  // Max Sound dB
-  reading = sensorReadings.createNestedObject();
-  reading["id"] = 9;
-  reading["label"] = "max_sound_dB";
-  reading["value"] = max_dB;
-
-  // Air Quality
-  reading = sensorReadings.createNestedObject();
-  reading["id"] = 10;
-  reading["label"] = "air_avg";
-  reading["value"] = avg_air;
-
-  // Min Air Quality
-  reading = sensorReadings.createNestedObject();
-  reading["id"] = 11;
-  reading["label"] = "min_air_quality";
-  reading["value"] = min_air;
-
-  // Max Air Quality
-  reading = sensorReadings.createNestedObject();
-  reading["id"] = 12;
-  reading["label"] = "max_air_quality";
-  reading["value"] = max_air;
-
-  char buffer[512];
-  serializeJson(doc, buffer);
-
-  client.publish("esp32/data", buffer);
-
-  Serial.print("Sending: "); Serial.println(buffer);
-
+  delay(50);
   //reset averages, minimum and maximus values
   min_air = 1000;
   max_air = -1000;
   min_dB = 1000;
   max_dB = -1000;
+}
+
+void create_json_and_send_data(int metric_id, char* label, float value){
+  
+  StaticJsonDocument<128> doc;
+
+  doc["sector_id"] = esp_sector_id;
+  doc["metric_id"] = metric_id;
+  doc["label"] = label;
+  doc["value"] = value;
+
+  char buffer[128];
+  serializeJson(doc, buffer);
+
+  bool success = client.publish("esp32/data", buffer);
+
+  if (success) {
+    Serial.println("Data published successfully");
+    Serial.print("Sent data: "); Serial.println(buffer);
+  } else {
+    Serial.println("Failed to publish data");
+  }
 }
