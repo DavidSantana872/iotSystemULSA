@@ -24,7 +24,7 @@ namespace backendIotSystemUlsa.Controllers{
         }
 
         [HttpGet]
-        public async Task<IEnumerable<object>> Get() { // Cambiamos el tipo de retorno a IEnumerable<object> o un DTO específico para MetricData
+       public async Task<IActionResult> Get(){
             /*var orders = await context.MetricData
                 .Select(o => new MetricDataDto {
                     Id = o.Id,
@@ -92,7 +92,12 @@ namespace backendIotSystemUlsa.Controllers{
 
                 }
             ).ToListAsync();
-            return orders;
+
+            var data = orders.ToDictionary(
+                o => o.Name,
+                o => o
+            );
+            return Ok(data);
         }
 
 
@@ -138,7 +143,24 @@ namespace backendIotSystemUlsa.Controllers{
                 }
             }
         }
+        [HttpGet("metrics/ideal")]
+        public async Task<IActionResult> GetIdealMetrics() {
+            // obtener estaciones online
+            var stations = await context.MonitoringStations
+                .Where(station => station.Status == "Online")
+                .Select(station => new {
+                    station.Id,
+                    station.SectorId
+                })
+                .ToListAsync();
+                // obtener segun la estaciones anteriores sus ultimas metricas
+                // pero comparar con todas las metricas de las estaciones anteriores 
+                // cual es la menor en value
+
+            return Ok(400);
+        }
        
     }
 
 }
+

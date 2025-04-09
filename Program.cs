@@ -1,7 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using backendIotSystemUlsa.Data;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
+// Agregar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()  // Permite cualquier origen
+                  .AllowAnyMethod()  // Permite cualquier método (GET, POST, etc.)
+                  .AllowAnyHeader(); // Permite cualquier cabecera
+        });
+});
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -17,14 +30,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
+app.UseCors("AllowAll");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
-
+//app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment()){
+    app.UseHttpsRedirection();
+}
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "bGNXnHsIsMT5XGY0N6LbNPm7UarAwG6uAgH+l5umfEs=",
+  "Source": "backendIotSystemUlsa",
+  "BasePath": "_content/backendIotSystemUlsa",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

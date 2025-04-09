@@ -3,7 +3,7 @@ namespace backendIotSystemUlsa.Models{
         public int Id {set; get;}
         public int ?StationsId {set; get;}
         public int MetricId {set; get;}
-        public int Value {set; get;}
+        public float Value {set; get;}
         public DateTime RegistrationDate {set; get;} = DateTime.Now;
 
         // Relaciones 
