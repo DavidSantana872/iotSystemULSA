@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import oxigeno from "./../resources/gif/Oxigeno.png";
 import sonido from "./../resources/gif/Sonido.gif";
 
-const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
+const TargetCurrentData = ({ value, title, dataGraph , id, lastData }) => {
     const getImg = () => {
         if (title === "Oxigeno") {
             return oxigeno;
@@ -10,10 +10,25 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
             return sonido;
         }
     };
-
+    // si la grafica necesita puntos maximos y minimos
+    const [version2Graph, setVersion2Graph] = useState(title.includes('Promedio'));
+    const [color, setColor] = useState('white');
     const canvasRef = useRef(null);
+    const [minValue, setMinValue] = useState(null);
+    const [maxValue, setMaxValue] = useState(null);
 
-    const arrayData = [
+    // formatear datos 
+   
+    const [arrayData, setArrayData] = React.useState([]);
+    useEffect(() => {
+        const formattedData = ([ ...dataGraph, {value: 0}]).map((item, index) => ({
+            x: dataGraph.length - index ,
+            y: item.value,
+        }));
+        // invertir arreglo 
+        setArrayData(formattedData);
+    }, [dataGraph]);
+    /*const arrayData = [
         { x: 0, y: 20 },
         { x: 1, y: 25 },
         { x: 2, y: 22 },
@@ -24,7 +39,7 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
         { x: 7, y: 35 },
         { x: 8, y: 40 },
         { x: 9, y: 42 }
-    ];
+    ];*/
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
@@ -46,6 +61,7 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
         const maxY = Math.max(...arrayData.map(d => d.y));
         const minX = Math.min(...arrayData.map(d => d.x));
         const minY = Math.min(...arrayData.map(d => d.y));
+
         const scaleX = (width - padding * 2) / (maxX - minX);
         const scaleY = (height - padding * 2) / (maxY - minY);
 
@@ -63,8 +79,9 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
          // Crea un gradiente para el relleno bajo la línea
         const gradient = ctx.createLinearGradient(0, height - padding, 0, padding);
    
-        if(title === "Sonido"){
+        if(title.startsWith("Ruido")){
             ctx.strokeStyle = 'rgb(0, 115, 255)';
+            setColor('rgb(0, 115, 255)');
             ctx.lineWidth = strokeWidth;
             ctx.stroke();
     
@@ -72,8 +89,9 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
             gradient.addColorStop(0, 'rgba(0, 115, 255, 0.0)'); // Rojo semi-transparente en la parte superior
             gradient.addColorStop(1, 'rgba(0, 115, 255, 0.4)'); // Amarillo transparente hacia abajo
         }
-        else if(title === "Oxigeno"){
+        else if(title.includes("Aire")){
             ctx.strokeStyle = 'rgb(0, 255, 195)';
+            setColor('rgb(0, 255, 195)');
             ctx.lineWidth = strokeWidth;
             ctx.stroke();
     
@@ -81,14 +99,35 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
             gradient.addColorStop(1, 'rgba(0, 255, 195, 0.4)'); // Amarillo transparente hacia abajo
 
         }
-        else{
+        else if(title === "Temperatura"){
             ctx.strokeStyle = 'rgb(255, 0, 255)';
+            setColor('rgb(255, 0, 255)');
             ctx.lineWidth = strokeWidth;
             ctx.stroke();
     
             // Crea un gradiente para el relleno bajo la línea
-             gradient.addColorStop(0, 'rgba(255, 0, 255, 0.0)'); // Rojo semi-transparente en la parte superior
+            gradient.addColorStop(0, 'rgba(255, 0, 255, 0.0)'); // Rojo semi-transparente en la parte superior
             gradient.addColorStop(1, 'rgba(255, 0, 255, 0.4)'); // Amarillo transparente hacia abajo
+
+        }else if (title === "Humedad"){
+
+            ctx.strokeStyle = 'rgb(255, 234, 0)';
+            setColor('rgb(255, 234, 0)');
+            ctx.lineWidth = strokeWidth;
+            ctx.stroke();
+            // Crea un gradiente para el relleno bajo la línea
+            gradient.addColorStop(0, `rgba(255, 234, 0, 0.0)`); // Rojo semi-transparente en la parte superior
+            gradient.addColorStop(1, `rgba(255, 234, 0, 0.4)`); // Amarillo transparente hacia abajo
+
+        }else if (title.includes("Calor")){
+
+            ctx.strokeStyle = 'rgb(26, 255, 0)';
+            setColor('rgb(26, 255, 0)');
+            ctx.lineWidth = strokeWidth;
+            ctx.stroke();
+            // Crea un gradiente para el relleno bajo la línea
+            gradient.addColorStop(0, `rgba(26, 255, 0, 0.0)`); // Rojo semi-transparente en la parte superior
+            gradient.addColorStop(1, `rgba(26, 255, 0, 0.4)`); // Amarillo transparente hacia abajo
 
         }
         // Rellena bajo la línea
@@ -97,15 +136,56 @@ const TargetCurrentData = ({ value, title, arrayDatas , id }) => {
         ctx.closePath();
         ctx.fillStyle = gradient;
         ctx.fill();
+
+        setMinValue(
+            () => {
+                if(version2Graph){
+                    // mapear last data y buscar el valor maximo
+                    let labelMin = `${title.split('Promedio')[0]}Mín`
+                    let min =  lastData.filter((item) => item.name.startsWith(labelMin));
+                    try{
+                        return min[0].metricData.value.toFixed(1)
+                    }catch{
+                        return null
+                    }
+                }
+                return 0
+            }
+        )
+        setMaxValue(
+            () => {
+                if(version2Graph){
+                    // mapear last data y buscar el valor maximo
+                    let labelMax =  `${title.split('Promedio')[0]}Máx`
+                    let max = lastData.filter((item) => item.name.startsWith(labelMax));
+                    try{
+                        return max[0].metricData.value.toFixed(1)
+                    }catch{
+                        return null
+                    }
+                }
+                return 0
+            }
+        )
     }, [arrayData]);  // Dependencia de useEffect para redibujar cuando los datos cambian
 
 
     return (
         /*<div className="target-current-data" style={{ backgroundImage: `url(${getImg()})` }}>*/
-           <div className="target-current-data" >
-      
-            <div>
+           <div className="target-current-data" style={{ borderColor: `${version2Graph ? color : "#67676782"}`}}>
+            <div style={{ position: "relative" }}>
+                    {
+                        version2Graph && <div className="target-current-min-max" >
+                        <div className="target-current-data-div" style={{ color: `${color}`, backgroundColor:"black",  border:`1px solid ${color}` }}>
+                            Max: {maxValue}
+                        </div>
+                        <div className="target-current-data-div" style={{ color: "black", backgroundColor:`${color}`, border:`1px solid ${color}` }}>
+                            Min: {minValue}
+                        </div>
+                    </div>
+                    }
                 <div>
+                   
                     <p className="target-current-data-title">
                         {title}
                     </p>

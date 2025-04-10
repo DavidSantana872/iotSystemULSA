@@ -130,3 +130,25 @@ canvas {
     }
     
 }
+
+.target-current-min-max{
+    font-size: 12px;
+    font-weight: 900;
+    position: absolute;
+    z-index: 1000;
+    right: 6px;
+    bottom: 0px;
+    width: max-content;
+}
+.target-current-data-div {
+    padding: 2px !important;
+    width: 100%;
+    text-align: center;
+}
+.target-current-data-div:first-child{
+    border-radius: 12px 0px 0px 0px;
+}
+
+.target-current-data-div:last-child{
+    border-radius: 0px 0px 12px 0px;
+}
