@@ -9,7 +9,7 @@ import { counterContext } from "./../Context/counterContext";
 import Live from "./Live.jsx";
 import anime from "animejs";
 import { TIME_POLLING, BASE_URL } from "./../utils/constants.js";
-
+import {formatearFecha} from "../utils/functions.js";
 const CurrentData = () => {
     const { showDetails, setShowDetails, currentMetric, metricsAll } = useContext(counterContext);
 
@@ -53,9 +53,9 @@ const CurrentData = () => {
     }, [showDetails])
 
     const icon = () => {
-        if (currentMetric === "Oxigeno") {
+        if (currentMetric === "Calidad Del Aire Promedio") {
             return iconOxigeno;
-        } else if (currentMetric === "Sonido") {
+        } else if (currentMetric === "Ruido Promedio") {
             return iconSound;
         } else {
             return iconTemperatura;
@@ -69,7 +69,7 @@ const CurrentData = () => {
                     <div className="current-data-header">
                         <Live show={data.monitoringStations.status === "ONLINE"} />
                         <p className="title-current-data-header">
-                            Última actualización {data.data[0].metricData.registrationDate}
+                            Última actualización {formatearFecha(data.data[0].metricData.registrationDate)}
                         </p>
                         <button
                             onClick={() => {
@@ -104,7 +104,7 @@ const CurrentData = () => {
                         <div className="value-current-data">
                             <p>
                                 {data.data.map((element, index) => (
-                                    currentMetric === element.title ? element.metricData.value : null
+                                   element.name == currentMetric ? element.metricData.value.toFixed(1) : ""
                                 ))}
                             </p>
                         </div>
@@ -112,7 +112,7 @@ const CurrentData = () => {
                     <div className="slider-dts">
                         <div>
                             {metricsDts.map((element, index) => (
-                                currentMetric !== element.name && element.data !== null && element.data.length > 0 && !(element.name.includes("Mínimo")) && !(element.name.includes("Máximo")) && !(element.name.includes("Mínima")) && !(element.name.includes("Máxima")) ? (
+                                 element.data !== null && element.data.length > 0 && !(element.name.includes("Mínimo")) && !(element.name.includes("Máximo")) && !(element.name.includes("Mínima")) && !(element.name.includes("Máxima")) ? (
                                     <TargetCurrentData key={index + element.name} id={index} title={element.name} value={element.data[0].value.toFixed(1)} dataGraph = {element.data} lastData = {data.data}/>
                                 ) : null
                             ))}

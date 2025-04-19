@@ -46,6 +46,32 @@ const MapView = () => {
     const showDeatilsFunction = (sector) => {
         setShowDetails(sector)
     }
+
+    const getIdealSector = () => {
+        let x = Infinity;
+        let sectorCorrecto = ""
+        for (const sector in metricsAll) {
+           for (const metric of metricsAll[sector].data) {
+                if(currentMetric === metric.name){
+                   
+                    if (metric.metricData.value < x) {
+                        x = metric.metricData.value;
+                        sectorCorrecto = sector;
+                    }
+                }
+            }
+           
+        }
+        console.log("Sector ideal:" + sectorCorrecto)
+        return sectorCorrecto;
+
+    }
+    useEffect(
+        () => {
+            setSectorIdeal(getIdealSector());
+        }, [currentMetric, metricsAll]
+    )
+    const [sectorIdeal, setSectorIdeal] = React.useState(getIdealSector());
     useEffect(() => {
         const animateScroll = () => {
             const TIME = 2300;
@@ -94,17 +120,19 @@ const MapView = () => {
                     */
                 }
                  <div class="box-title-sector" style={styleElement(-14, 92)}>
+                    <p className="title-sector"><Live show={detectStations("Campo de futbol")}></Live> Campo de futbol</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
-                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
+                <PointAlert show={sectorIdeal == "Campo de futbol"} metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
                 
                 <img src={campoFutbol} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("Campo de beisbol")}} style = {styleElement(23, 342)}>
-                <div class="box-title-sector" style={styleElement(-13, 116)}>
+                <div class="box-title-sector" style={styleElement(-5, 86)}>
+                    <p className="title-sector"><Live show={detectStations("Campo de beisbol")}></Live> Campo de beisbol</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
-                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
+                <PointAlert show={sectorIdeal == "Campo de beisbol"} metric={currentMetric} positionValue= {styleElement(200, 56)}></PointAlert>
                 <img src={campoBeisbol} alt="Campo de beislbol" />
             </span>
             <span onClick={()=>{showDeatilsFunction("Fuente ULSA")}} style = {styleElement(626.79, 173.69)}>
@@ -112,7 +140,7 @@ const MapView = () => {
                     <p className="title-sector"><Live show={detectStations("Fuente ULSA")}></Live> Fuente ULSA</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
-                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-5, -30)}></PointAlert>
+                <PointAlert show={sectorIdeal == "Fuente ULSA"} metric={currentMetric} positionValue= {styleElement(-5, -30)}></PointAlert>
                 <img src={Group16} alt="" />
             </span>
             <span onClick={()=>{showDeatilsFunction("Mesas Comedor")}} style = {styleElement(652, 223)}>
@@ -120,7 +148,7 @@ const MapView = () => {
                     <p className="title-sector"><Live show={detectStations("Mesas Comedor")}></Live> Mesas Comedor</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
-                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(0, -25)}></PointAlert>
+                <PointAlert show={sectorIdeal == "Mesas Comedor"} metric={currentMetric} positionValue= {styleElement(0, -25)}></PointAlert>
                 <img src={Vector31} alt="" />
             </span>
             <span onClick={()=>{}} style = {styleElement(417, 122)}>
@@ -137,7 +165,7 @@ const MapView = () => {
                     <p className="title-sector"><Live show={detectStations("Kiosco D")}></Live> Kiosco D</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
-                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(20, -15)}></PointAlert>
+                <PointAlert show={sectorIdeal == "Kiosco D"} metric={currentMetric} positionValue= {styleElement(20, -15)}></PointAlert>
                 <img src={Vector32} alt="" />
             </span>
             <span onClick={()=>{}} style = {styleElement(605, 30)}>
@@ -154,7 +182,7 @@ const MapView = () => {
                     <p className="title-sector"><Live show={detectStations("Kiosco A")}></Live> Kiosco A</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
-                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(-15, -30)}></PointAlert>
+                <PointAlert show={sectorIdeal == "Kiosco A"} metric={currentMetric} positionValue= {styleElement(-15, -30)}></PointAlert>
                 <img src={Vector38} alt="" />
             </span>
             <span onClick={()=> {}} style = {styleElement(731, 204)}>
@@ -171,7 +199,7 @@ const MapView = () => {
                     <p className="title-sector"><Live show={detectStations("Kiosco Sala Maestros")}></Live> Kiosco Sala Maestros</p>
                     <img class="opacity" src={eye} alt="Show!" />
                 </div>
-                <PointAlert show="true" metric={currentMetric} positionValue= {styleElement(5, -20)}></PointAlert>
+                <PointAlert show={sectorIdeal == "Kiosco Sala Maestros"} metric={currentMetric} positionValue= {styleElement(5, -20)}></PointAlert>
                 <img src={Vector28} alt="" />
             </span>
             <span onClick={()=> {}} style = {styleElement(768, 135)}>

@@ -33,10 +33,10 @@ const PointAlert = ({show, positionValue, metric}) => {
 		
     */
    const point1Color = () => {
-        if(metric === "Sonido"){
+        if(metric === "Ruido Promedio"){
             return 'rgb(0,72,255, calc(0.14 * 4))'
         }
-        else if(metric === "Oxigeno"){
+        else if(metric === "Calidad Del Aire Promedio"){
             return 'rgb(6, 184, 142, calc(0.14 * 4))'
         }
         else{
@@ -44,10 +44,10 @@ const PointAlert = ({show, positionValue, metric}) => {
         }
    }
    const point2Color = () => {
-        if(metric === "Sonido"){
+        if(metric === "Ruido Promedio"){
             return 'rgb(0,72,255, calc(0.29 * 4))'
         }
-        else if(metric === "Oxigeno"){
+        else if(metric === "Calidad Del Aire Promedio"){
             return 'rgb(6, 184, 142, calc(0.29 * 4))'
         }
         else{
@@ -55,10 +55,10 @@ const PointAlert = ({show, positionValue, metric}) => {
         }
     }
     const point3Color = () => {
-        if(metric === "Sonido"){
+        if(metric === "Ruido Promedio"){
             return 'rgb(0, 72, 255, calc(0.35 * 4))'
         }
-        else if(metric === "Oxigeno"){
+        else if(metric === "Calidad Del Aire Promedio"){
             return 'rgb(6, 184, 142, calc(0.35 * 4))'
         }
         else{
@@ -84,7 +84,7 @@ const PointAlert = ({show, positionValue, metric}) => {
     )
 
     return(
-        show == "true" ? <div class="point1" style = {styleData}>
+        show == true ? <div class="point1" style = {styleData}>
             <div class="point2" style={{background: point2Color()}}>
                 <div class="point3" style={{background: point3Color()}}>
                 </div>

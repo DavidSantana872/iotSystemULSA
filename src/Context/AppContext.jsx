@@ -4,7 +4,7 @@ import { counterContext } from "./counterContext.js";
 const AppContext = ({children}) => {
     const [showApp, setShowApp] = useState(false)
     const [showDetails, setShowDetails] = useState(false)
-    const [currentMetric, setCurrentMetric] = useState('Sonido')
+    const [currentMetric, setCurrentMetric] = useState('Ruido Promedio')
     const [stationsOnline, setStationsOnline] = useState([])
     const [metricsAll, setMetricsAll] = useState('')
     return(

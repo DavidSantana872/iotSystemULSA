@@ -6,11 +6,21 @@ const BtnOption = (props) => {
 
     const propStyle = {
         'background': `linear-gradient(150deg, ${props.color1} 0%, ${props.color2} 100%)`,
+        ...(props.text === "Temperatura" ? { width: "104px" } : {}),
     }
 
+    const currentMetric = () => {
+        if(props.text === "Ruido"){
+            setCurrentMetric("Ruido Promedio")
+        }else if(props.text === "Aire"){
+            setCurrentMetric("Calidad Del Aire Promedio")
+        }else if(props.text === "Temperatura"){
+            setCurrentMetric("Temperatura")
+        }
+    }
     return(
         <button className="btn-option" style={propStyle} onClick={() => {
-            setCurrentMetric(props.text)
+            currentMetric()
         }}>
             {
                 props.text
