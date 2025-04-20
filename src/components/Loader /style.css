@@ -1,0 +1,70 @@
+.loader-container {
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 9999;
+  }
+  
+  .green-circle {
+    background-color: #009523;
+    border-radius: 50%;
+    width: 400rem;
+    height: 400rem;
+
+  flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s ease-in-out;
+    position: relative;
+    overflow: scroll;
+    animation: shadow 1000ms ease-in-out infinite;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+  /* animacion con el box shadow*/
+    @keyframes shadow {
+        0% {
+        box-shadow: 0 0 90px #009523;
+        }
+        100% {
+        box-shadow: 0 0 90px #00952300;
+        }
+    }
+  
+  .green-circle.shrunk {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .cloud {
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+    color: white;
+    animation: cloudMove 1s ease-in-out 1s forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes cloudMove {
+    0% {
+      transform: translate(48px, 48px);
+      scale: 0;
+      opacity: 0;
+    }
+    50% {
+      transform: translate(0, 0);
+      opacity: 1;
+      scale: 1;
+    }
+    100% {
+        scale: 6;
+        opacity: 1;
+    }
+  }
+  
