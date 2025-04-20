@@ -5,6 +5,7 @@ import "./script.js";
 import salleImg from "./../../resources/img/salle.png";
 import Welcome from "./welcome.jsx";
 import Loader from "../Loader /index.jsx";
+import MoreInformation from "../MoreInformation.jsx";
 const Index = () => {
     const [showWelcome, setShowWelcome] = useState(false);
     useEffect(() => {
@@ -29,7 +30,7 @@ const Index = () => {
         );
     }
 
-    return showWelcome ? <Welcome /> : <Animation/>;
+    return showWelcome ? <MoreInformation/> : <MoreInformation/>;
 };
 
 export default Index;

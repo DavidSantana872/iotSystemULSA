@@ -1,0 +1,25 @@
+.more-information{
+    background-color: rgb(52, 52, 52) !important;
+}
+#prototipo{
+    width: 200px;
+    height: 210px !important;
+    height: auto; /* Ensure height is set for replaced elements */
+    object-fit: cover !important;
+    
+}
+.prototipo-box{
+    width: min-content;
+    height: 150px;
+    overflow: hidden;
+}
+
+.more-information p, .more-information h3, .more-information h1, .more-information li{
+    color: aliceblue !important;
+}
+.more-information a {
+    color: rgb(255, 224, 85) !important;
+}
+h3.x{
+    color: rgb(255, 224, 85) !important;
+}

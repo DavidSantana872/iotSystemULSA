@@ -85,14 +85,14 @@ ul{
     margin: 4px;
 }
 .close-btn{
-    background-color: #e7e7e756;
+    background-color: #3d9c3a;
     border: none;
     width: 43px;
     height: 43px;
     right: 12px;
     top: 12px;
     position: absolute;
-    color: #5656567a;
+    color: #ffffff;
     font-weight: 400;
     font-size: 24px;
     border-radius: 12px;
