@@ -30,7 +30,7 @@ const Index = () => {
         );
     }
 
-    return showWelcome ? <MoreInformation/> : <MoreInformation/>;
+    return showWelcome ? <Welcome/> : <Animation/>;
 };
 
 export default Index;
