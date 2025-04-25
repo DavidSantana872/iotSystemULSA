@@ -192,6 +192,16 @@ const TargetCurrentData = ({ value, title, dataGraph , id, lastData }) => {
                     </p>
                     <p className={`target-current-data-value ${title.includes("Aire") ? "value-current-data-air" : title.includes("Ruido") ? "target-current-data-title-noise" : title.includes("Temperatura") ? "target-current-data-title-temperature" : title.includes("Humedad") ? "target-current-data-title-humidity" : title.includes("Calor") ? "target-current-data-title-heat" : ""}`}>
                         {value}
+                        <span className="signo-current-data" style={{
+                            color: color
+                        }}>
+                        {
+                            title.includes("Ruido") ? " dB" :
+                            title.includes("Temperatura") ? " °C" :
+                            title.includes("Humedad") ? " %" :
+                            title.includes("Calor") ? "°C" : ""
+                        }
+                        </span>
                     </p>
                     <div className="grafico-dts">
                         <canvas ref={canvasRef} width="1008" height="288"></canvas>

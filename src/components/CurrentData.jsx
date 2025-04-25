@@ -116,6 +116,18 @@ const CurrentData = () => {
                                             element.metricData.value.toFixed(1)
                                     ) : ""
                                 ))}
+                                <span className="signo-current-data"
+                                    style={{
+                                        fontWeight: '100'
+                                    }}
+                                >
+                                    {
+                                        currentMetric.includes("Ruido") ? " dB" :
+                                        currentMetric.includes("Temperatura") ? " °C" :
+                                        currentMetric.includes("Humedad") ? " %" :
+                                        currentMetric.includes("Calor") ? "°C" : ""
+                                    }
+                                </span>
                             </p>
                         </div>
                     </div>
