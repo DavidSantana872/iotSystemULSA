@@ -143,3 +143,8 @@ ul{
       opacity: 1;
     }
   }
+
+  .value-current-data-air{
+    font-size: 2rem;
+  font-weight: 100;
+  }

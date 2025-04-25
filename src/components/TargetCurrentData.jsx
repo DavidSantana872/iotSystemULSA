@@ -3,6 +3,8 @@ import oxigeno from "./../resources/gif/Oxigeno.png";
 import sonido from "./../resources/gif/Sonido.gif";
 
 const TargetCurrentData = ({ value, title, dataGraph , id, lastData }) => {
+
+    
     const getImg = () => {
         if (title === "Oxigeno") {
             return oxigeno;
@@ -169,7 +171,6 @@ const TargetCurrentData = ({ value, title, dataGraph , id, lastData }) => {
         )
     }, [arrayData]);  // Dependencia de useEffect para redibujar cuando los datos cambian
 
-
     return (
         /*<div className="target-current-data" style={{ backgroundImage: `url(${getImg()})` }}>*/
            <div className="target-current-data" style={{ borderColor: `${version2Graph ? color : "#67676782"}`}}>
@@ -186,10 +187,10 @@ const TargetCurrentData = ({ value, title, dataGraph , id, lastData }) => {
                     }
                 <div>
                    
-                    <p className="target-current-data-title">
+                <p className="target-current-data-title">
                         {title}
                     </p>
-                    <p className="target-current-data-value">
+                    <p className={`target-current-data-value ${title.includes("Aire") ? "value-current-data-air" : title.includes("Ruido") ? "target-current-data-title-noise" : title.includes("Temperatura") ? "target-current-data-title-temperature" : title.includes("Humedad") ? "target-current-data-title-humidity" : title.includes("Calor") ? "target-current-data-title-heat" : ""}`}>
                         {value}
                     </p>
                     <div className="grafico-dts">

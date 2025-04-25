@@ -62,6 +62,14 @@ const CurrentData = () => {
         }
     };
 
+    const stringCalidadAire = (value) => {
+        if (value <= 200) return "Excellent";
+        else if (value <= 400) return "Good";
+        else if (value <= 600) return "Moderate";
+        else if (value <= 800) return "Poor";
+        else return "Very Poor";
+    };
+
     return (
         showDetails && data && data.data[0].metricData != null ? (
             <section className="current-data">
@@ -73,8 +81,6 @@ const CurrentData = () => {
                         </p>
                         <button
                             onClick={() => {
-                                
-
                                 anime({
                                     targets: ".current-data",
                                     translateY: '550px', // Desplaza el componente hacia abajo fuera de la vista
@@ -102,9 +108,13 @@ const CurrentData = () => {
                             </p>
                         </div>
                         <div className="value-current-data">
-                            <p>
+                            <p className={currentMetric.includes("Aire") ? "value-current-data-air" : "value-current-data-others"}>
                                 {data.data.map((element, index) => (
-                                   element.name == currentMetric ? element.metricData.value.toFixed(1) : ""
+                                    element.name === currentMetric ? (
+                                        currentMetric.includes("Aire") ? 
+                                            stringCalidadAire(element.metricData.value) : 
+                                            element.metricData.value.toFixed(1)
+                                    ) : ""
                                 ))}
                             </p>
                         </div>
@@ -112,8 +122,8 @@ const CurrentData = () => {
                     <div className="slider-dts">
                         <div>
                             {metricsDts.map((element, index) => (
-                                 element.data !== null && element.data.length > 0 && !(element.name.includes("Mínimo")) && !(element.name.includes("Máximo")) && !(element.name.includes("Mínima")) && !(element.name.includes("Máxima")) ? (
-                                    <TargetCurrentData key={index + element.name} id={index} title={element.name} value={element.data[0].value.toFixed(1)} dataGraph = {element.data} lastData = {data.data}/>
+                                element.data !== null && element.data.length > 0 && !(element.name.includes("Mínimo")) && !(element.name.includes("Máximo")) && !(element.name.includes("Mínima")) && !(element.name.includes("Máxima")) ? (
+                                    <TargetCurrentData key={index + element.name} id={index} title={element.name} value={element.name.includes("Aire") ? stringCalidadAire(element.data[0].value) : element.data[0].value.toFixed(1)} dataGraph={element.data} lastData={data.data} />
                                 ) : null
                             ))}
                         </div>
