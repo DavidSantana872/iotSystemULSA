@@ -54,9 +54,13 @@ const MapView = () => {
            for (const metric of metricsAll[sector].data) {
                 if(currentMetric === metric.name){
                    
-                    if (metric.metricData.value < x) {
-                        x = metric.metricData.value;
-                        sectorCorrecto = sector;
+                    try{
+                        if (metric.metricData?.value != null && metric.metricData.value < x) {
+                            x = metric.metricData.value;
+                            sectorCorrecto = sector;
+                        }
+                    }catch (error) {
+                        console.log("Error en las métricas: " + error)
                     }
                 }
             }

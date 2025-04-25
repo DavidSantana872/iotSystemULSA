@@ -63,7 +63,7 @@ const CurrentData = () => {
     };
 
     return (
-        showDetails && data ? (
+        showDetails && data && data.data[0].metricData != null ? (
             <section className="current-data">
                 <div>
                     <div className="current-data-header">
