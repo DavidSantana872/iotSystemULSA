@@ -1,10 +1,11 @@
 import pyodbc
 import time
-
+import datetime
+import pytz
 ONLINE = "ONLINE"
 OFFLINE = "OFFLINE"
 # Constante para definir el intervalo de verificación en segundos (1.5 minutos) valor en segundos
-INTERVALO_VERIFICACION = 90
+INTERVALO_VERIFICACION = 10
 
 # Configuración de SQL Server
 sql_config = {
@@ -23,7 +24,9 @@ conn_str = (
     f'PWD={sql_config["password"]};'
     'Encrypt=yes;TrustServerCertificate=yes;'
 )
+nicaragua_tz = pytz.timezone('America/Managua')
 
+      
 def connect_db():
     """Establece una conexión simple a la base de datos."""
     return pyodbc.connect(conn_str)
@@ -102,9 +105,16 @@ if __name__ == "__main__":
             if last_metric:
                 # si la fecha de registro es mayor a 2 minutos
                 tiempo_registro = last_metric['RegistrationDate']
-                tiempo_actual = time.time()
-                tiempo_diferencia = tiempo_actual - tiempo_registro.timestamp() 
-                if tiempo_diferencia > 120:
+                tiempo_actual = datetime.datetime.now(nicaragua_tz)
+                print("Tiempo actual:", tiempo_actual)
+
+                tiempo_diferencia = tiempo_actual.replace(tzinfo=None) - tiempo_registro.replace(tzinfo=None)
+
+                minutos = tiempo_diferencia.total_seconds() / 60
+                print("Tiempo actual:", tiempo_actual)
+                print("Ultima fecha de registro:", tiempo_registro) 
+                print("Diferencia", minutos)
+                if minutos > 2:
                     print(f"La estación {stations_id} no ha enviado datos en más de 2 minutos.")
                     # Cambiar el estado de la estación a 'offline'
                     change_status_stations(OFFLINE, stations_id)
