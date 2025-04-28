@@ -23,3 +23,13 @@
 h3.x{
     color: rgb(255, 224, 85) !important;
 }
+.valid{
+    background-color: green;
+    color: white;
+    border: white;
+}
+.invalid{
+    background-color: red;
+    color: white;
+    border: white;
+}

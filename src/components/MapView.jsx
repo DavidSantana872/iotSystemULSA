@@ -23,6 +23,7 @@ import CurrentData from "./CurrentData";
 import PointAlert from "./PointAlert.jsx";
 import Live from "./Live.jsx";
 import anime from "animejs";
+import BtnReport from "./BtnReport.jsx";
 const MapView = () => {
     const {setShowDetails, currentMetric, stationsOnline, metricsAll} = useContext(counterContext)
     
@@ -116,6 +117,7 @@ const MapView = () => {
                 position: 'relative'
             }}
         >
+            <BtnReport/>
             <span onClick={()=>{showDeatilsFunction("Campo de futbol")}} style= {styleElement(209, 256)}>
                 {
                     /*
