@@ -318,3 +318,6 @@
 /home/davidsantanag01/backendIotSystemUlsa/obj/Release/net9.0/backendIotSystemUlsa.pdb
 /home/davidsantanag01/backendIotSystemUlsa/obj/Release/net9.0/backendIotSystemUlsa.genruntimeconfig.cache
 /home/davidsantanag01/backendIotSystemUlsa/obj/Release/net9.0/ref/backendIotSystemUlsa.dll
+/home/davidsantanag01/backendIotSystemUlsa/bin/Release/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/davidsantanag01/backendIotSystemUlsa/bin/Release/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/davidsantanag01/backendIotSystemUlsa/bin/Release/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll

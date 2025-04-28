@@ -93,6 +93,9 @@
 /var/www/netApp/NuGet.Protocol.dll
 /var/www/netApp/NuGet.Versioning.dll
 /var/www/netApp/Polly.Core.dll
+/var/www/netApp/Swashbuckle.AspNetCore.Swagger.dll
+/var/www/netApp/Swashbuckle.AspNetCore.SwaggerGen.dll
+/var/www/netApp/Swashbuckle.AspNetCore.SwaggerUI.dll
 /var/www/netApp/System.ClientModel.dll
 /var/www/netApp/System.CodeDom.dll
 /var/www/netApp/System.Composition.AttributedModel.dll

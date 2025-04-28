@@ -318,3 +318,6 @@
 /home/davidsantanag01/backendIotSystemUlsa/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Scripting.resources.dll
 /home/davidsantanag01/backendIotSystemUlsa/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Scripting.resources.dll
 /home/davidsantanag01/backendIotSystemUlsa/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Scripting.resources.dll
+/home/davidsantanag01/backendIotSystemUlsa/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/davidsantanag01/backendIotSystemUlsa/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/davidsantanag01/backendIotSystemUlsa/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
