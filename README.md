@@ -17,6 +17,14 @@ Se desarrolló una plataforma IoT que utiliza sensores para monitorear las condi
 * **Estudiantes:** Identificación de los espacios más confortables para sus actividades.
 * **Universidad:** Toma de decisiones basada en datos para la mejora y gestión de las áreas verdes.
 
+**Puedes explorar el código fuente de este proyecto aquí. La estructura del repositorio se organiza en ramas específicas para cada componente principal:**
+
+* **frontend:** Contiene el código de la interfaz web desarrollada con React, JavaScript, HTML y CSS.
+* **backend:** Incluye el código del servidor desarrollado con ASP.NET Core (C#) y scripts en Python.
+* **procesos:** Detalla los procesos y la lógica de negocio del sistema.
+* **esp32:** Alberga el código específico para la programación del microcontrolador ESP32.
+* **mqtt:** Contiene la implementación y configuración del protocolo MQTT utilizado para la comunicación.
+
 ## Componentes del Sistema
 
 * **Hardware:**
