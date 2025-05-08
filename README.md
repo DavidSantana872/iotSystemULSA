@@ -1,10 +1,48 @@
-<img src="https://github.com/user-attachments/assets/5de5b9be-5f25-4d71-9de2-ea5b7750608d" alt="Plugin icon" width="120" height="120" align="left">
-
 # Monitoreo Ambiental Inteligente para Áreas Verdes de ULSA
 
-<br>
+<img src="https://github.com/user-attachments/assets/5de5b9be-5f25-4d71-9de2-ea5b7750608d" alt="Plugin icon" width="100">
 
-En la Universidad Tecnológica La Salle (ULSA), las áreas verdes son espacios fundamentales para la vida académica y recreativa de los estudiantes. Sin embargo, factores ambientales como el ruido, la temperatura y la calidad del aire pueden influir significativamente en la comodidad y concentración, impactando directamente en su experiencia universitaria. Actualmente, la falta de información en tiempo real sobre estas condiciones impide una gestión óptima de estos espacios y dificulta la toma de decisiones informadas sobre su uso.
-La información recopilada permitirá a los estudiantes identificar los lugares más adecuados para sus actividades, promoviendo un ambiente más favorable para el estudio y el bienestar. Asimismo, facilitará a la universidad la implementación de estrategias de mejora ambiental basadas en datos concretos, optimizando la planificación y el uso de sus instalaciones en beneficio de toda la comunidad universitaria. Este proyecto no solo mejora la experiencia estudiantil, sino que también impulsa la adopción de tecnologías IoT en el ámbito académico, alineándose con las tendencias globales en la automatización y el monitoreo ambiental.
+Este proyecto implementa un sistema de **Monitoreo Ambiental Inteligente** para las áreas verdes de la **Universidad Tecnológica La Salle (ULSA)**. El objetivo es recopilar y visualizar en tiempo real datos sobre ruido, temperatura y calidad del aire para mejorar la experiencia de los estudiantes y optimizar la gestión de estos espacios por parte de la universidad.
 
-**Fecha Prevista de Finalización y Puesta en Marcha: 3 de Abril de 2025**
+## Problemática
+
+La falta de información en tiempo real sobre las condiciones ambientales en las áreas verdes de ULSA dificulta la toma de decisiones informadas y la implementación de mejoras.
+
+## Solución
+
+Se desarrolló una plataforma IoT que utiliza sensores para monitorear las condiciones ambientales y una interfaz web para visualizar los datos en tiempo real.
+
+## Beneficios
+
+* **Estudiantes:** Identificación de los espacios más confortables para sus actividades.
+* **Universidad:** Toma de decisiones basada en datos para la mejora y gestión de las áreas verdes.
+
+## Componentes del Sistema
+
+* **Hardware:**
+    * Servidor Linux
+    * ESP32
+    * Sensores: DHT11 (temperatura/humedad), detección de sonido, MQ135 (calidad del aire)
+<img src="https://github.com/user-attachments/assets/c4032859-e02b-4924-af34-244f6c5d5a51" alt="Captura de pantalla de la plataforma" width="300">
+
+* **Software:**
+    * **Backend:** ASP.NET Core (C#) + Python (cryptography, pyodbc)
+    * **Base de Datos:** SQL Server Express
+    * **Comunicación:** MQTT
+    * **Frontend:** React + JavaScript, HTML, CSS
+
+<p>
+  <img src="https://github.com/user-attachments/assets/f25efcc9-d223-464c-b473-1c6d4540005f" alt="Captura de pantalla de la plataforma" >
+</p>
+## Funcionalidades de la Plataforma Web
+
+* Mapa interactivo de ULSA con marcadores para las áreas verdes.
+* Visualización de datos ambientales en tiempo real al hacer clic en un área verde.
+* Generación de informes globales con las últimas métricas.
+
+<h2>Demo</h2>
+
+<p>
+  Puedes ver el funcionamiento en [www.iotulsa.duckdns.org](https://www.iotulsa.duckdns.org).
+</p>
+<img src="https://github.com/DavidSantana872/iotSystemULSA/blob/frontend/src/resources/gif/Recording%202025-05-08%20at%2010.27.59.gif" alt="GIF de la plataforma" width="300">
